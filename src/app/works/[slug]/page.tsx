@@ -72,7 +72,9 @@ export default async function WorkView({ params }: WorkPageProps) {
 
   const nextWork = nextOf(work.slug);
   const mastheadItems: KeyValue[] = [
-    { label: "Client", value: work.client },
+    work.client
+      ? { label: "Client", value: work.client }
+      : { label: "Engagement", value: work.engagement ?? "" },
     { label: "Year", value: work.year },
     { label: "Category", value: work.category },
     {
@@ -84,7 +86,7 @@ export default async function WorkView({ params }: WorkPageProps) {
   ];
   const roleItems: KeyValue[] = [
     { label: "Role", value: work.role },
-    { label: "Client", value: work.client },
+    ...(work.client ? [{ label: "Client", value: work.client }] : []),
     ...(work.engagement
       ? [{ label: "Engagement", value: work.engagement }]
       : []),

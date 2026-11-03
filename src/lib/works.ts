@@ -19,7 +19,8 @@ export type Work = {
   descriptor: string;
   overview: string;
   role: string;
-  client: string;
+  /** Left out for personal projects, which have no client. */
+  client?: string;
   /** How the work was contracted. Set only once the owner has confirmed it. */
   engagement?: string;
   year: string;
@@ -536,7 +537,7 @@ export const getDashMetrics = async () => {
     overview:
       "FarmGrow is an AI farming assistant, a chat workspace that answers questions on crops, soil health, pests, weather, and sustainable farm planning. It runs on the Vercel AI SDK with switchable models (Claude, Gemini, GPT). A structured \"Agricultural Strategist\" persona answers in a fixed order of diagnosis, yield gap, integrated strategy, economics, and risk. I built it full-stack, including the XML-driven prompt system, the streaming chat API, a branching conversation model on MongoDB and Prisma, tool-call and token/latency telemetry, shareable sessions, and the UI.",
     role: "Full-stack",
-    client: "FarmGrow",
+    engagement: "Personal project",
     year: "2026",
     category: "AI",
     tags: ["Next.js", "TypeScript", "Vercel AI SDK", "MongoDB", "Prisma"],
@@ -617,7 +618,7 @@ return await action();`,
     overview:
       "Reunitar is an offline-first lost-and-found operations app for large conventions. Staff run checkroom and lost-and-found counters across multiple conventions, handling item intake, release, claims, disposition, missing-item reports, and person-case escalation, with role-scoped access and post-event reporting. I built it full-stack on Next.js and Prisma. It includes a local-first RxDB sync layer so staff keep working when venue Wi-Fi drops, and MongoDB Atlas vector and hybrid search that matches free-text descriptions of lost and found items.",
     role: "Full-stack",
-    client: "Reunitar",
+    engagement: "Personal project",
     year: "2026",
     category: "Operations",
     tags: [
