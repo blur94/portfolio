@@ -7,6 +7,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: shadcn code block on case studies
+
+- Added `src/components/ui/code-block.tsx` and `src/lib/highlighter.tsx` from the shadcn `base-maia` registry, adapted to the repo's `cn` import and Phosphor icons. Left `button.tsx` unchanged because it already has the `icon-xs` size.
+- `src/app/works/[slug]/page.tsx`: code steps now use the component with a copy button, themed for light and dark. Shiki highlights on the server, so it stays out of the client bundle.
+- Added `language` to code artifacts in `src/lib/works.ts`. Prisma isn't in the highlighter's language list, so that snippet renders as plain text.
+- Added the `shiki` dependency.
+
 ### 2026-11-03: Uncropped case-study images
 
 - `src/app/works/[slug]/page.tsx`: stacked each Process step so its image or code runs the full content width, and stopped cropping images. Added `width` and `height` to image artifacts in `src/lib/works.ts`.

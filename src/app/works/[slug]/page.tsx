@@ -6,7 +6,15 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
+import {
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockLine,
+} from "@/components/ui/code-block";
 import { CountStat } from "@/components/CountStat";
+import { highlightCode } from "@/lib/highlighter";
 import type { WorkArtifact } from "@/lib/works";
 import { nextOf, works } from "@/lib/works";
 
@@ -311,7 +319,7 @@ function KeyValueRow({ label, value, href, gated }: KeyValue) {
   );
 }
 
-function ArtifactBlock({
+async function ArtifactBlock({
   title,
   artifact,
 }: {
@@ -319,10 +327,21 @@ function ArtifactBlock({
   artifact: WorkArtifact;
 }) {
   if (artifact.kind === "code") {
+    const lines =
+      (await highlightCode(artifact.body, artifact.language)) ??
+      artifact.body.split("\n");
+
     return (
-      <pre className="overflow-x-auto rounded-3xl border border-border bg-[#161820] p-6 text-sm leading-relaxed text-white shadow-2xl shadow-black/30">
-        <code>{artifact.body}</code>
-      </pre>
+      <CodeBlock className="rounded-3xl border-border bg-(--bg-code) shadow-2xl shadow-black/30 dark:bg-(--bg-code)">
+        <CodeBlockActions>
+          <CodeBlockCopyButton value={artifact.body} />
+        </CodeBlockActions>
+        <CodeBlockContent className="p-6">
+          {lines.map((line, index) => (
+            <CodeBlockLine key={index}>{line}</CodeBlockLine>
+          ))}
+        </CodeBlockContent>
+      </CodeBlock>
     );
   }
 

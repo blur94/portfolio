@@ -1,6 +1,6 @@
 export type WorkArtifact =
   | { kind: "image"; src: string; width: number; height: number }
-  | { kind: "code"; body: string };
+  | { kind: "code"; language: string; body: string };
 
 export type WorkProcessStep = {
   title: string;
@@ -207,6 +207,7 @@ export const works: Work[] = [
         body: "For an identity product, trusting a cookie isn't enough. A request proxy revalidates the session against the backend (`/admin/auth/me`) on every navigation. It redirects authenticated users away from auth routes and sends everyone else to a login that remembers their destination. MFA and OTP flows sit on top.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// proxy.ts: revalidate the session on every request
 const hasValidSession = async (req: NextRequest) => {
   const res = await fetch(\`\${apiBaseUrl}/admin/auth/me\`, {
@@ -223,6 +224,7 @@ const hasValidSession = async (req: NextRequest) => {
         body: "I built a multi-step workspace setup so businesses provision themselves, and a developers module for API keys and integration management, which matches the platform's API-first pitch. I also built the Motion-animated, MDX-driven marketing site with shiki-highlighted docs.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// middleware matcher: guard the whole app except assets/api
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico|icon.svg).*)"],
@@ -270,6 +272,7 @@ export const config = {
         body: "I built subdomain-based multi-tenancy in middleware. It extracts the company from the host, checks it exists on the backend, then validates the session JWT (`/v1/auth/me`). Auth redirects remember the user's destination. Each company gets a branded, isolated workspace from a single deployment.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// src/middleware.ts: resolve tenant from the subdomain, then auth
 const subdomain = hostnameParts.length > 2 ? hostnameParts[0] : null;
 const { data: company } = await fetch(
@@ -287,6 +290,7 @@ if (!token || !(await validateToken(token)))
         body: "Payroll can't fail on a malformed account number. I wrote banking validation for 15+ countries, with per-country account formats, IBAN validation, sort codes, routing numbers, and BSB. It includes a debounced account-lookup hook and a helper component that shows the expected format as the user types.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// src/lib/utils/bankingValidation.ts: per-country formats + IBAN
 validateAccountNumber("DE89370400440532013000", "DE"); // IBAN
 validateAccountNumber("0123456789", "NG");              // 10-digit
@@ -299,6 +303,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
         body: "I built an AI-generated organogram. A prompt-to-org-chart route in the app renders onto a React Flow canvas where HR can drag, reconnect, and export the chart, with positions and units CRUD and reorderable approval workflows behind it. Every payroll report also exports as PDF, Excel, CSV, or print.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// AI org-chart generation stays in the Next.js app
 // src/app/api/organogram/generate/route.ts -> React Flow canvas
 // backend owns persistence only: save/retrieve chart, positions &
@@ -425,6 +430,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
         body: "A research platform shouldn't feel like a product launch site. Every animation uses transforms and runs at the section level, with no loops. The hero fades up on load, and the rest of the page stays still so readers can focus on the content.",
         artifact: {
           kind: "code",
+          language: "tsx",
           body: `const variants = {
   hidden: { y: 100, opacity: 0 },
   visible: { y: 0, opacity: 1 },
@@ -498,6 +504,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
         body: "Three backend services sat behind the admin, each expecting the same bearer token. Every Server Action reads the qatAuth cookie and forwards it, so a single session works across the whole admin.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// every admin server action forwards the session token
 export const getDashMetrics = async () => {
   const token = (await cookies()).get("qatAuth")?.value;
@@ -546,6 +553,7 @@ export const getDashMetrics = async () => {
         body: "I split the system prompt into versioned XML files for identity, knowledge, task, constraints, methodology, and response_schema, and a prompt loader assembles them. That makes the agricultural persona and its output format easier to maintain and test. Every answer follows the same five sections, and a verification loop checks soil-health and IPM thresholds before the final answer.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// src/prompts/promptLoader.ts: persona assembled from versioned files
 const SYSTEM = [
   "identity", "knowledge", "task",
@@ -560,6 +568,7 @@ const SYSTEM = [
         body: "I built the streaming chat API on the Vercel AI SDK over a MongoDB and Prisma model. It has branching messages, persisted tool invocations, per-run token and latency telemetry, auto-generated titles, and shareable sessions, so a conversation is an editable tree.",
         artifact: {
           kind: "code",
+          language: "prisma",
           body: `// branching conversation tree (prisma/schema.prisma)
 model Message {
   turnIndex       Int
@@ -577,6 +586,7 @@ model Message {
         body: "I traced a ~15s per-request delay to a redundant Prisma $connect() on every query. I removed it, because Prisma connects lazily on the first query, and added connection-pool config. I also added streaming markdown (code, math, mermaid), SEO and PWA metadata, and dynamic social images.",
         artifact: {
           kind: "code",
+          language: "typescript",
           body: `// before: forced a new connection on every request (~15s cold start)
 await prisma.$connect();
 return await action();
