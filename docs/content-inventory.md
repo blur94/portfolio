@@ -44,7 +44,7 @@ Confirmed by the owner on 2026-11-03.
 | Paystat | 12 modules, 15+ countries for bank validation, 1 subdomain per tenant | Structural |
 | Raia | 54 countries | Confirmed by the owner: all 54 African countries are covered |
 | Raia | 7 initiatives, 5 directory categories | Structural |
-| Veriv Africa | Launch 02/2024 | Needs a decision: production deploys ran from 2024-01-25 to 2024-03-17, and the earliest web archive capture is 2024-04-19, so the month is unproven |
+| Veriv Africa | Launch 02/2024 | Confirmed by the owner on 2026-11-03 |
 | Veriv Africa | 10 thematic areas | Checked against the live site navbar on 2026-11-03 |
 | Veriv Africa | 3 content types | Structural |
 | Qatapolt | 9 modules, 3 backend services, 4 report categories | Structural |
