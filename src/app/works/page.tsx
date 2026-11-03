@@ -9,6 +9,7 @@ export const metadata = {
   title: "Works",
   description:
     "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and operator tooling.",
+  alternates: { canonical: "/works" },
 };
 
 export default function Works() {
@@ -35,7 +36,7 @@ export default function Works() {
             }}
           >
             <span style={{ color: "var(--text-display-dim)" }}>A few of the things </span>
-            I&rsquo;ve shipped.
+            I&rsquo;ve built.
           </h1>
           <p
             className="text-[22px] leading-[1.4] tracking-[-0.03em]"

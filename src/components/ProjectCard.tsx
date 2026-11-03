@@ -8,7 +8,7 @@ interface ProjectCardProps {
 }
 
 /**
- * ProjectCard — card with 16:9 media thumbnail, title, descriptor, category + live chips.
+ * ProjectCard — card with 16:9 media thumbnail, title, descriptor, role + stack, category + status chips.
  * Tailwind translation of .card from the Plinth handoff CSS.
  */
 export function ProjectCard({ work }: ProjectCardProps) {
@@ -76,6 +76,20 @@ export function ProjectCard({ work }: ProjectCardProps) {
           {work.descriptor}
         </p>
 
+        {/* Role + stack */}
+        <p
+          className="text-sm leading-[1.4] tracking-[-0.02em]"
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontWeight: 500,
+            color: "var(--text-tertiary)",
+          }}
+        >
+          {work.engagement
+            ? `${work.role} · ${work.engagement}`
+            : `${work.role} · ${work.tags.slice(0, 3).join(", ")}`}
+        </p>
+
         {/* Meta chips */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Category chip — outline */}
@@ -101,6 +115,20 @@ export function ProjectCard({ work }: ProjectCardProps) {
               }}
             >
               Live
+            </span>
+          )}
+
+          {/* Private chip — outline */}
+          {!work.isLive && (
+            <span
+              className="inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium uppercase tracking-[-0.06em]"
+              style={{
+                fontFamily: "var(--font-heading)",
+                borderColor: "var(--border-faint)",
+                color: "var(--text-muted)",
+              }}
+            >
+              Private build
             </span>
           )}
 
