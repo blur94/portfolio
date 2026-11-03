@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: Engagement end dates
+
+- Added the Prune end date to About: the engagement ran from July 2024 to September 2026, as confirmed by the owner.
+- Added the Qatapolt end date to About: May to July 2024, as confirmed by the owner.
+
 ### 2026-11-03: Canonical domain
 
 - Added `lastmod` to every sitemap URL from a hand-set content date (`updatedAt` on each work, `pageUpdatedAt` in `sitemap.ts`), so search engines recrawl the corrected pages sooner.

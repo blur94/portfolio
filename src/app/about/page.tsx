@@ -50,7 +50,7 @@ const experience = [
     bullets: [
       "Build and maintain frontend codebases in React, Next.js, and TypeScript, working with UI/UX designers and contributing to architecture decisions.",
       "Lead code reviews and mentor junior developers.",
-      "Prune Payments, a client engagement through C80 from July 2024, across the consumer and business sides of a cross-border payments platform, including the business dashboard and internal admin console.",
+      "Prune Payments, a client engagement through C80 from July 2024 to September 2026, across the consumer and business sides of a cross-border payments platform, including the business dashboard and internal admin console.",
       "re:current, Helium ID, and Paystat, three platforms I built under C80 for property management, identity verification, and payroll.",
       "DAM NG, a C80 project that has since been sunsetted.",
     ],
@@ -72,7 +72,7 @@ const experience = [
     years: "From Jan 2024, per project",
     bullets: [
       "Veriv Africa, from January 2024: built the frontend for the editorial article and insights system, with long-form content from two CMSes.",
-      "Qatapolt, from May 2024: built the admin dashboard for platform metrics, moderation, news, and trophies.",
+      "Qatapolt, May to July 2024: built the admin dashboard for platform metrics, moderation, news, and trophies.",
     ],
   },
   {
