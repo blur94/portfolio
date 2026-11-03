@@ -250,14 +250,15 @@ export const config = {
     descriptor:
       "Legislative information platform for bills, gazettes, and analysis reports.",
     overview:
-      "Gazettes is a legislative information platform for the National Institute for Legislative and Democratic Studies (NILDS), the National Assembly's institute for legislative research and training. The public app lets anyone track bills through the National Assembly, read official gazettes, and read analysis reports by NILDS researchers. The admin app is where NILDS staff publish gazettes, manage bills and sponsors, and review analysis reports before they go public. I built the frontend for both apps, plus an internal dashboard that brings the team's monitoring tools into one place, in a pnpm and Turborepo monorepo with shared UI, data, and type packages.",
+      "Gazettes is a legislative information platform for the National Institute for Legislative and Democratic Studies (NILDS), the National Assembly's institute for legislative research and training. The public app lets anyone track bills through the National Assembly, read official gazettes, and read analysis reports by NILDS researchers. The admin app is where NILDS staff publish gazettes, manage bills and sponsors, and review analysis reports before they go public. I built the frontend for both apps, plus an internal dashboard that brings the team's monitoring tools into one place, in a pnpm and Turborepo monorepo with shared UI, data, and type packages. I'm still the sole frontend maintainer.",
     role: "Frontend",
     client: "National Institute for Legislative and Democratic Studies (NILDS)",
     engagement: "Built under C80 Limited",
     year: "2026",
     category: "GovTech",
     tags: ["Next.js", "TypeScript", "Turborepo", "TanStack Query", "shadcn/ui"],
-    isLive: false,
+    isLive: true,
+    liveUrl: "https://gazettes.dev80.co",
     coverImage: "/projects/gazettes/cover.png",
     context:
       "Nigeria's legislative record is spread across many places. Bills move through two chambers, gazettes are published as separate documents, and researchers write analysis on both. Citizens, journalists, and civil society groups had no single place to follow a bill and find the gazette and analysis linked to it. Gazettes puts all three in one searchable public app, backed by an admin app where staff publish and review that content.",
