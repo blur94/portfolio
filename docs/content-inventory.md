@@ -42,7 +42,7 @@ Confirmed by the owner on 2026-11-03.
 | re:current | 3 property modes, 2 surfaces, 2 PDF pipelines | Structural |
 | Helium ID | 7 admin modules, 4 verification methods, 2 surfaces | Structural |
 | Paystat | 12 modules, 15+ countries for bank validation, 1 subdomain per tenant | Structural |
-| Raia | 54 countries | The public site shows both 54 and 49, so needs confirming |
+| Raia | 54 countries | Confirmed by the owner: all 54 African countries are covered |
 | Raia | 7 initiatives, 5 directory categories | Structural |
 | Veriv Africa | Launch 02/2024, 3 content types, 10+ categories | Needs evidence for the launch date and category count |
 | Qatapolt | 9 modules, 3 backend services, 4 report categories | Structural |
