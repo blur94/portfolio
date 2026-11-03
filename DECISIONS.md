@@ -159,6 +159,33 @@ Only durable decisions belong here. Always record _why_ — not just what.
 
 ---
 
+### Portfolio Claims Need a Source
+
+**Date:** 2026-11-03
+**Decision:** Employer relationships, dates and numbers on the site must come from the owner or be derivable from code. C80 Limited is the primary employer, Prune and DAM NG are shown as work through C80, and Responsible AI Africa is a separate per-feature contract. `Work.engagement` is set only when the relationship is confirmed. The status of each number lives in `docs/content-inventory.md`.
+**Reason:** Template and unsupported claims contradicted the owner's CVs and undermine credibility with hiring managers.
+**Implications:** Add a metric only with evidence and permission to publish it. Never infer an engagement type for a project.
+
+---
+
+### Stat Counters Render Their Final Value on the Server
+
+**Date:** 2026-11-03
+**Decision:** `CountStat` server-renders the final value and resets to 0 on the client only when it is going to animate. It updates the DOM through a ref rather than state.
+**Reason:** Crawlers and no-JS visitors saw 0, and reading `matchMedia` during render risked a hydration mismatch.
+**Implications:** A stat already in view during hydration briefly shows its final value before counting up. Stats below the fold are not affected.
+
+---
+
+### Writing Stays Out of the Nav Until It Has an Article
+
+**Date:** 2026-11-03
+**Decision:** Removed Writing from the nav and footer and set `/writing` to `noindex`, keeping the page. This reverses the 2026-06-29 change that linked it.
+**Reason:** A prominent "Coming Soon" page is a dead end for a hiring manager.
+**Implications:** When the first article ships, restore the two nav links and the sitemap entry, and remove `noindex`.
+
+---
+
 <!-- ═══════════════════════════════════════════════════════════════
      MULTI-AGENT ORG UPGRADE
      Frozen routing rules for the multi-agent org. HR must apply them

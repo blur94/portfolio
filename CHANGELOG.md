@@ -7,6 +7,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03 — Credibility and conversion pass
+
+- `src/app/about/page.tsx`: replaced the template timeline with C80 Limited as primary employment, Prune and DAM NG as work through C80, Responsible AI Africa as a separate per-feature contract, and Rework Academy. Removed claims nothing supports.
+- `src/lib/works.ts`: added an optional `engagement` field, set it for Prune and Raia, removed unsupported business metrics, and reordered entries to lead with Prune, re:current and Helium ID.
+- `src/app/page.tsx`: added a role and stack line and a "Discuss a contract" CTA. Replaced "8 repeat clients" with stats derived from `works`, and fixed the template hero alt text and Lagos caption.
+- `src/components/AvailabilityCard.tsx`, `src/app/contact/page.tsx`, `ContactForm.tsx`: removed the auto-dated "Available from" claim, quarterly capacity and reply-time promises.
+- `src/components/CountStat.tsx`: the server now renders the final value, so no-JS visitors and crawlers don't see 0. The accessible name stays on the final value, reduced motion no longer risks a hydration mismatch, and date-like values don't animate. The count-up itself is unchanged.
+- `src/components/ProjectCard.tsx`, `src/app/works/[slug]/page.tsx`: cards show role, engagement, stack and a private-build chip. The case-study "Team" and "Engagement" rows no longer repeat the client and descriptor.
+- SEO: added `sitemap.ts`, `robots.ts`, `opengraph-image.tsx`, `metadataBase`, canonicals and per-case-study social metadata. Replaced the "design, music, and code" descriptions and the "MyWebSite" manifest name.
+- Accessibility: removed `maximumScale: 1`, which blocked pinch zoom, and the nested `<main>` on case studies.
+- `src/components/Footer.tsx`: fixed the LinkedIn URL. Writing left the nav and footer, and `/writing` is `noindex` until it has an article.
+- `docs/content-inventory.md` (new): route-to-source map, status of each number, and removed claims.
+
 ### 2026-11-03 — Rename project to "portfolio"
 
 - Renamed the project from `pre-portfolio` to `portfolio` in `package.json` and the repo memory file headers, ahead of the GitHub repo rename.
