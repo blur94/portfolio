@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Temporal } from "temporal-polyfill";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
@@ -10,9 +11,14 @@ import { StaggeredGrid } from "@/components/StaggeredGrid";
 import { CountStat } from "@/components/CountStat";
 import { works } from "@/lib/works";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   const selectedWorks = works.slice(0, 3);
   const yearsBuilding = Temporal.Now.plainDateISO().year - 2020;
+  const liveProjects = works.filter((work) => work.isLive).length;
 
   return (
     <>
@@ -43,15 +49,29 @@ export default function Home() {
               </h1>
 
               <p
-                className="mb-10 text-lg leading-[1.4] tracking-[-0.03em] md:text-[22px]"
+                className="mb-5 text-lg leading-[1.4] tracking-[-0.03em] md:text-[22px]"
                 style={{
                   fontFamily: "var(--font-body)",
                   color: "var(--text-muted)",
-                  maxWidth: "22ch",
+                  maxWidth: "36ch",
                 }}
               >
                 I build operator-grade web platforms for African fintechs,
                 regtechs, and the boring parts of the stack.
+              </p>
+
+              <p
+                className="mb-10 text-base leading-normal tracking-[-0.02em] md:text-lg"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  color: "var(--text-secondary)",
+                  maxWidth: "52ch",
+                }}
+              >
+                Senior Frontend Engineer building complex SaaS and fintech
+                applications with React, Next.js, and TypeScript, from
+                architecture and design systems to reliable production
+                workflows.
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5">
@@ -76,7 +96,7 @@ export default function Home() {
                     color: "var(--text-primary)",
                   }}
                 >
-                  Or write me a note
+                  Discuss a contract
                 </Button>
               </div>
             </div>
@@ -84,8 +104,8 @@ export default function Home() {
             {/* Right — browser frame */}
             <BrowserFrame
               src="/projects/verivafrica/cover.png"
-              imageAlt="VerivAfrica dashboard, partner view"
-              url="verivafrica.com / dashboard"
+              imageAlt="Veriv Africa homepage"
+              url="verivafrica.com"
             />
           </div>
         </div>
@@ -150,9 +170,9 @@ export default function Home() {
             />
             <CountStat
               number={String(works.length)}
-              label="Projects shipped end-to-end"
+              label="Case studies published"
             />
-            <CountStat number="8" label="Repeat clients" />
+            <CountStat number={String(liveProjects)} label="Projects live today" />
           </div>
         </div>
       </section>
@@ -191,8 +211,8 @@ export default function Home() {
               >
                 Most of my work is taking a process someone already does in
                 spreadsheets and turning it into a screen that gets out of their
-                way. Operator surfaces, billing primitives, compliance loops —
-                the layer where the interesting decisions hide.
+                way. Operator dashboards, payment permissions, booking and identity
+                workflows — the layer where the interesting decisions hide.
               </p>
 
               <p
@@ -232,7 +252,7 @@ export default function Home() {
                   backgroundColor: "var(--bg-surface)",
                 }}
                 role="img"
-                aria-label="A workspace — placeholder portrait"
+                aria-label="Responsible AI Africa homepage"
               />
               <figcaption
                 className="mt-3 text-sm"
@@ -243,7 +263,7 @@ export default function Home() {
                   color: "var(--text-muted)",
                 }}
               >
-                Workspace, Lagos. Most of the work happens here.
+                Responsible AI Africa, one of my recent builds.
               </figcaption>
             </figure>
           </div>

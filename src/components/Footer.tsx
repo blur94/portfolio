@@ -43,7 +43,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/gileadodo",
+    href: "https://www.linkedin.com/in/gilead-odo",
     icon: (
       <svg
         role="img"

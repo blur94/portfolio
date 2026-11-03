@@ -59,9 +59,11 @@ export default async function WorkView({ params }: WorkPageProps) {
   ];
   const roleItems: KeyValue[] = [
     { label: "Role", value: work.role },
-    { label: "Team", value: work.client },
+    { label: "Client", value: work.client },
+    ...(work.engagement
+      ? [{ label: "Engagement", value: work.engagement }]
+      : []),
     { label: "Stack", value: work.tags.join(", ") },
-    { label: "Engagement", value: work.descriptor },
   ];
 
   return (
@@ -212,7 +214,7 @@ export default async function WorkView({ params }: WorkPageProps) {
         <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-12 px-6 text-center md:px-10 lg:px-20">
           <SectionKicker>Outcome</SectionKicker>
           <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-6xl">
-            The measurable shape of the work.
+            The shape of the work.
           </h2>
           <div className="grid w-full gap-10 md:grid-cols-3">
             {work.outcomes.map((outcome) => (

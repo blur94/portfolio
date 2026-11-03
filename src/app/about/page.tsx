@@ -5,7 +5,8 @@ import { Kicker } from "@/components/Kicker";
 export const metadata = {
   title: "About",
   description:
-    "About Gilead Odo, a frontend developer building durable operator surfaces and web platforms.",
+    "About Gilead Odo, a senior frontend engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
+  alternates: { canonical: "/about" },
 };
 
 const articles = [
@@ -13,7 +14,7 @@ const articles = [
     title: "What I work on",
     body: [
       "Most of my work is taking a process someone already does in spreadsheets, on paper, or across three browser tabs and turning it into a single screen that gets out of their way.",
-      "The projects I&rsquo;m proudest of share a pattern: a clear operator, a real workflow, and constraints that make the interesting decisions obvious. VerivAfrica, Recurrent, Qatapolt Admin: these all started as the question, how do we stop using spreadsheets for this?",
+      "The projects I&rsquo;m proudest of share a pattern: a clear operator, a real workflow, and constraints that make the interesting decisions obvious. Prune&rsquo;s money-movement permissions, re:current&rsquo;s bookings and tenancy documents, and Helium ID&rsquo;s identity operations all work that way.",
     ],
   },
   {
@@ -27,48 +28,42 @@ const articles = [
     title: "How I think about the work",
     body: [
       "Operator-grade software is durable software. It has to survive a feature freeze, a marketing pivot, three staff turnovers, and the audit that happens two years later. I write for that horizon.",
-      "The best engagements look like four to twelve weeks of focused building, often inside an existing team. I work best as a hands-on IC, sometimes as a fractional lead, never as the loudest voice in the room.",
+      "My primary employment is with C80 Limited, and I also take independent contracts scoped to specific features. I work best as a hands-on IC inside an existing team, never as the loudest voice in the room.",
     ],
   },
 ];
 
 const experience = [
   {
-    title: "Senior frontend engineer",
-    company: "VerivAfrica",
-    years: "2023 - Present",
-    bullets: [
-      "Led the partner dashboard from greenfield to production at 800 verifications / minute.",
-      "Built the embeddable verification SDK and shipped the Plinth design system to four partners.",
-      "Co-ran operator interviews that shaped the queue / stream split.",
-    ],
-  },
-  {
     title: "Frontend engineer",
-    company: "Recurrent.ng",
-    years: "2022 - 2023",
+    company: "C80 Limited",
+    relationship: "Primary employment",
+    years: "Dec 2022 - Present",
     bullets: [
-      "Architected the subscription event log; reports became reductions, not joins.",
-      "Designed and shipped the customer self-service portal.",
-      "Wrote the copy editor for retry sequences.",
+      "Build and maintain frontend codebases in React, Next.js, and TypeScript, working with UI/UX designers and contributing to architecture decisions.",
+      "Lead code reviews and mentor junior developers.",
+      "Prune Payments, a client engagement through C80 from March 2024: the business dashboard and the internal admin console.",
+      "DAM NG, a C80 project that has since been sunsetted.",
     ],
   },
   {
-    title: "Frontend engineer",
-    company: "Prune Payments",
-    years: "2021 - 2022",
+    title: "Independent contractor",
+    company: "Responsible AI Africa",
+    relationship: "Contracted per feature, not continuous employment",
+    years: "2025, per feature",
     bullets: [
-      "Built the merchant till for low-light, single-handed use on a budget tablet.",
-      "Brought type sizes up from a 14px floor to a 22px floor; complaints dropped by half.",
+      "Engaged for the duration of specific new-feature work.",
+      "Built on Next.js and Payload CMS: the content model, access control, a transactional email outbox, and on-demand revalidation.",
     ],
   },
   {
-    title: "Frontend developer",
-    company: "Freelance / contract",
-    years: "2019 - 2021",
+    title: "Full-stack engineer",
+    company: "Rework Academy",
+    relationship: "Employment",
+    years: "Jan 2022 - Dec 2022",
     bullets: [
-      "Worked across regtech, fintech, and civic-tech briefs.",
-      "Started keeping a personal token system, the seed of what became Plinth.",
+      "Contributed to frontend architecture and user interactions, with an emphasis on responsiveness, accessibility, and cross-browser compatibility.",
+      "Pair-programmed with senior developers and took part in API design and development.",
     ],
   },
 ];
@@ -92,13 +87,13 @@ export default function About() {
           }}
         >
           <span style={{ color: "var(--text-display-dim)" }}>I&rsquo;m </span>Gilead Odo,
-          <br />a frontend developer.
+          <br />a senior frontend engineer.
         </h1>
         <p
           className="mx-auto max-w-[44ch] text-center text-[22px] leading-[1.4] tracking-[-0.02em]"
           style={{ color: "var(--text-secondary)" }}
         >
-          I build operator surfaces, billing primitives, and the dull, durable parts of African internet products.
+          I build operator surfaces, complex workflows, and the dull, durable parts of African internet products, mostly with React, Next.js, and TypeScript.
         </p>
       </section>
 
@@ -156,6 +151,12 @@ export default function About() {
                     style={{ fontFamily: "var(--font-heading)", color: "var(--text-muted)" }}
                   >
                     {role.company}
+                  </p>
+                  <p
+                    className="mt-1.5 text-sm font-medium tracking-[-0.02em]"
+                    style={{ fontFamily: "var(--font-heading)", color: "var(--text-tertiary)" }}
+                  >
+                    {role.relationship}
                   </p>
                 </div>
                 <div>
