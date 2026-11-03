@@ -68,9 +68,9 @@ export default function Home() {
                   maxWidth: "52ch",
                 }}
               >
-                Senior Frontend Engineer building complex SaaS and fintech
-                applications with React, Next.js, and TypeScript. I work on
-                architecture, design systems, and production workflows.
+                Senior Frontend Engineer working in React, Next.js, and
+                TypeScript. I work on architecture, design systems, and
+                production workflows.
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5">
