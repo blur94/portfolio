@@ -7,6 +7,7 @@ import { Sun, Moon, ArrowUpRight, Menu } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
+import { VersionSwitcher } from "@/components/VersionSwitcher";
 import {
   Sheet,
   SheetContent,
@@ -106,6 +107,8 @@ export function Nav() {
 
         {/* Right — theme toggle + CTA */}
         <div className="flex flex-1 items-center justify-end gap-3">
+          <VersionSwitcher />
+
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"

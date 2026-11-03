@@ -7,10 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-### 2026-11-03 — Previous-versions dropdown
+### 2026-11-03 — Previous-versions dropdown (navbar)
 
 - `src/lib/versions.ts` (new): typed list of portfolio versions (`v2` current at gileadodo.com, `v1` at v1.gileadodo.com).
-- `src/components/VersionSwitcher.tsx` (new): Base UI `Menu` dropdown in the footer bottom bar, next to the copyright. It opens upward, lists each version with its name and period, checks the current one, and links out to archived ones. Uses design tokens for both themes.
+- `src/components/VersionSwitcher.tsx` (new): Base UI `Menu` dropdown in the navbar, left of the theme toggle (visible on desktop and mobile). It lists each version with its name and period, checks the current one, and links out to archived ones. Uses design tokens for both themes.
 - Repo: tagged `v1` (`6f45a83`) and `v2` (`7016a13`); `release/v1` branch carries `noindex` + canonical for the archive deploy.
 
 ### 2026-06-29 — Writing "Coming Soon" page
