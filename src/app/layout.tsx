@@ -59,24 +59,27 @@ const visbyCF = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.gileadodo.com"),
   title: {
-    template: "%s | Gilead",
-    default: "Gilead Odo — Software Developer",
+    template: "%s | Gilead Odo",
+    default: "Gilead Odo — Senior Frontend Engineer",
   },
   description:
-    "Portfolio of Gilead Odo — software developer exploring the intersection of design, music, and code.",
+    "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
   openGraph: {
-    title: "Gilead Odo — Software Developer",
+    title: "Gilead Odo — Senior Frontend Engineer",
     description:
-      "Portfolio of Gilead Odo — software developer exploring the intersection of design, music, and code.",
+      "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
     type: "website",
     locale: "en_US",
+    siteName: "Gilead Odo",
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gilead Odo — Software Developer",
+    title: "Gilead Odo — Senior Frontend Engineer",
     description:
-      "Portfolio of Gilead Odo — software developer exploring the intersection of design, music, and code.",
+      "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
     creator: "@balmofcodes",
   },
 };
@@ -84,7 +87,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 // Inline script that runs before first paint to prevent theme flash.

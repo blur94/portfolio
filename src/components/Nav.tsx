@@ -19,7 +19,6 @@ import {
 
 const navLinks = [
   { label: "Work", href: "/works" },
-  { label: "Writing", href: "/writing" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

@@ -33,9 +33,26 @@ export async function generateMetadata({
 
   if (!work) return {};
 
+  const title = `${work.title} case study`;
+  const description = `${work.descriptor} ${work.role} work by Gilead Odo.`;
+
   return {
-    title: work.title,
-    description: work.overview,
+    title,
+    description,
+    alternates: { canonical: `/works/${work.slug}` },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `/works/${work.slug}`,
+      images: [{ url: work.coverImage, alt: `${work.title} project snapshot` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [work.coverImage],
+    },
   };
 }
 
@@ -67,7 +84,7 @@ export default async function WorkView({ params }: WorkPageProps) {
   ];
 
   return (
-    <main className="bg-background text-foreground">
+    <div className="bg-background text-foreground">
       <section className="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-6 py-16 md:px-10 lg:px-20 lg:py-24">
         <Link
           href="/works"
@@ -252,7 +269,7 @@ export default async function WorkView({ params }: WorkPageProps) {
           Next: {nextWork.title}
         </Link>
       </nav>
-    </main>
+    </div>
   );
 }
 

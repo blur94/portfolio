@@ -77,18 +77,21 @@ export function ProjectCard({ work }: ProjectCardProps) {
         </p>
 
         {/* Role + stack */}
-        <p
-          className="text-sm leading-[1.4] tracking-[-0.02em]"
+        <div
+          className="flex flex-col gap-1 text-sm leading-[1.4] tracking-[-0.02em]"
           style={{
             fontFamily: "var(--font-heading)",
             fontWeight: 500,
             color: "var(--text-tertiary)",
           }}
         >
-          {work.engagement
-            ? `${work.role} · ${work.engagement}`
-            : `${work.role} · ${work.tags.slice(0, 3).join(", ")}`}
-        </p>
+          <p>
+            {work.engagement
+              ? `${work.role} · ${work.engagement}`
+              : work.role}
+          </p>
+          <p>{work.tags.slice(0, 3).join(", ")}</p>
+        </div>
 
         {/* Meta chips */}
         <div className="flex flex-wrap items-center gap-2">

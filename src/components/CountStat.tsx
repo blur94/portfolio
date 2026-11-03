@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface CountStatProps {
   /** Display number — can include prefix/suffix like "6+", "—40%", "₦2.4M", "<60ms" */
@@ -11,69 +11,77 @@ interface CountStatProps {
 /**
  * CountStat — animates a numeric value from 0 to its target when it enters the viewport.
  * Handles prefix/suffix strings (e.g. "6+", "—40%", "₦2.4M", "<60ms").
- * Respects prefers-reduced-motion.
+ * The server renders the final value, so crawlers and no-JS visitors never see 0;
+ * the client resets it to 0 only when it is going to animate.
+ * Date-like values ("02/2024") and prefers-reduced-motion show the final value as is.
  */
 export function CountStat({ number, label }: CountStatProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
 
-  // Parse: optional prefix, numeric part, optional suffix
-  const match = String(number).match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
-  const prefix = match ? match[1] : "";
-  const n = match ? parseFloat(match[2]) : 0;
-  const suffix = match ? match[3] : String(number);
-  const isNonNumeric = !match;
-
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const [val, setVal] = useState(0);
-
-  // Intersection observer to trigger animation on viewport entry
   useEffect(() => {
-    if (!ref.current) return;
+    const el = ref.current;
+    // Parse: optional prefix, numeric part, optional suffix
+    const match = number.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
+    const isDateLike = /^\d+\/\d+$/.test(number);
+    if (
+      !el ||
+      !match ||
+      isDateLike ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    const [, prefix, digits, suffix] = match;
+    const n = parseFloat(digits);
+    const format = (value: number) =>
+      `${prefix}${Number.isInteger(n) ? Math.round(value) : value.toFixed(1)}${suffix}`;
+
+    el.textContent = format(0);
+
+    let raf: number;
+    const animate = () => {
+      const duration = 800;
+      const start = performance.now();
+
+      const tick = (time: number) => {
+        const progress = Math.min((time - start) / duration, 1);
+        // Cubic ease-out
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = format(n * eased);
+        if (progress < 1) raf = requestAnimationFrame(tick);
+        else el.textContent = number;
+      };
+
+      raf = requestAnimationFrame(tick);
+    };
+
+    // Intersection observer to trigger animation on viewport entry
     const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setShown(true);
-        });
+        if (entries.some((entry) => entry.isIntersecting)) {
+          obs.disconnect();
+          animate();
+        }
       },
       { threshold: 0.5 }
     );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+    obs.observe(el);
 
-  // Count-up animation
-  useEffect(() => {
-    if (!shown || prefersReducedMotion || isNonNumeric) {
-      return;
-    }
-    const duration = 800;
-    const start = performance.now();
-    let raf: number;
-
-    const tick = (time: number) => {
-      const progress = Math.min((time - start) / duration, 1);
-      // Cubic ease-out
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setVal(n * eased);
-      if (progress < 1) raf = requestAnimationFrame(tick);
+    return () => {
+      obs.disconnect();
+      cancelAnimationFrame(raf);
+      el.textContent = number;
     };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [shown, n, prefersReducedMotion, isNonNumeric]);
-
-  const currentValue = prefersReducedMotion ? n : val;
-  const display = Number.isInteger(n)
-    ? Math.round(currentValue)
-    : currentValue.toFixed(1);
+  }, [number]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center gap-3 text-center">
+    <div className="flex flex-col items-center gap-3 text-center">
+      {/* role="img" keeps the final value as the accessible name while the text animates */}
       <div
+        ref={ref}
+        role="img"
+        aria-label={number}
         className="leading-none tracking-tight"
         style={{
           fontFamily: "var(--font-heading)",
@@ -83,7 +91,7 @@ export function CountStat({ number, label }: CountStatProps) {
           color: "var(--text-primary)",
         }}
       >
-        {isNonNumeric ? number : `${prefix}${display}${suffix}`}
+        {number}
       </div>
       <p
         className="text-sm leading-snug"

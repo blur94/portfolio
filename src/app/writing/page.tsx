@@ -5,7 +5,8 @@ import { PenLine, ArrowUpRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Writing",
   description:
-    "Essays and notes on design, music, and code from Gilead Odo. Coming soon.",
+    "Engineering notes from Gilead Odo on frontend architecture and building with React and Next.js. Coming soon.",
+  robots: { index: false, follow: true },
 };
 
 export default function WritingPage() {
@@ -53,9 +54,9 @@ export default function WritingPage() {
         className="mb-10 max-w-[52ch] text-[22px] leading-[1.4] tracking-[-0.03em]"
         style={{ color: "var(--text-muted)" }}
       >
-        I&rsquo;m building a place to share essays and notes on design, music,
-        and code. It&rsquo;s still in the works, so check back soon or explore
-        my projects in the meantime.
+        I&rsquo;m building a place to share engineering notes on frontend
+        architecture and building with React and Next.js. It&rsquo;s still in
+        the works, so check back soon or explore my projects in the meantime.
       </p>
 
       <Link
