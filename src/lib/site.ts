@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-/** Canonical origin. The apex domain redirects here. */
-export const siteUrl = "https://www.gileadodo.com";
+/** Canonical origin. www redirects to the apex domain. */
+export const siteUrl = "https://gileadodo.com";
 
 /** Next.js replaces a parent's openGraph object, so each page spreads these. */
 export const sharedOpenGraph = {

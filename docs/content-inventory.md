@@ -12,7 +12,7 @@ Maps each public route to the source that edits it, and records the status of ev
 | `/about` | `src/app/about/page.tsx` | Bio and the experience timeline are local arrays in this file |
 | `/contact` | `src/app/contact/page.tsx`, `layout.tsx`, `actions.ts`, `src/lib/contact-schema.ts`, `src/components/AvailabilityCard.tsx`, `ContactForm.tsx` | The form sends through Resend and needs `RESEND_API_KEY` |
 | `/writing` | `src/app/writing/page.tsx` | Placeholder in the nav. Out of the sitemap and `noindex` until there is an article |
-| `/sitemap.xml`, `/robots.txt` | `src/app/sitemap.ts`, `src/app/robots.ts` | The canonical host is `https://www.gileadodo.com`, because the apex redirects there |
+| `/sitemap.xml`, `/robots.txt` | `src/app/sitemap.ts`, `src/app/robots.ts` | The canonical host is the apex `https://gileadodo.com`, because www redirects there |
 | Social preview | `src/app/opengraph-image.tsx`, `generateMetadata` in `works/[slug]/page.tsx` | Case studies use their cover image |
 | Shared chrome | `src/components/Nav.tsx`, `Footer.tsx`, `src/app/layout.tsx` | Footer holds the social links. Layout holds the default metadata |
 | Unused | `src/app/api/hello/route.ts`, `src/app/api/send-email/route.ts` | Template route and an API route the form doesn't call |
