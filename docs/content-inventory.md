@@ -41,7 +41,8 @@ Confirmed by the owner on 2026-11-03.
 | Prune | 3 currencies, 2 surfaces, 4 backend services | Structural |
 | re:current | 3 property modes, 2 surfaces, 2 PDF pipelines | Structural |
 | Helium ID | 7 admin modules, 4 verification methods, 2 surfaces | Structural |
-| Gazettes | 3 apps, 12 bill stages from 7 backend statuses, 7 shared packages | Structural, from the Gazettes repository on 2026-11-03 |
+| Gazettes | 3 apps, 12 bill stages from 7 backend statuses, 4 monitoring tools | Structural, from the Gazettes repository on 2026-11-03 |
+| Gazettes | Role "Sole Frontend Engineer" | Owner on 2026-11-03: sole frontend maintainer |
 | Gazettes | Live URL `https://gazettes.dev80.co` | Given by the owner on 2026-11-03, not checked from the build environment |
 | Gazettes | Cover image | Illustration of the Bill Passage view with sample data, until real screenshots replace it |
 | Paystat | 12 modules, 15+ countries for bank validation, 1 subdomain per tenant | Structural |
