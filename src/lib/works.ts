@@ -45,9 +45,9 @@ export const works: Work[] = [
     slug: "prune",
     title: "Prune Payments",
     descriptor:
-      "Banking-as-a-service platform for issuing multi-currency accounts.",
+      "Cross-border payments platform for consumers and businesses.",
     overview:
-      "Prune is a banking-as-a-service platform. Businesses use it to issue and operate multi-currency accounts in EUR, GBP, and USD, with IBAN, Sort Code, and ACH details. I built the frontend for two apps. The business dashboard covers accounts, transactions, payouts, beneficiaries, debit requests, and role-based team management. The internal admin console covers business onboarding (KYB), eligibility, pricing plans, and account approvals.",
+      "Prune is a cross-border payments platform. Consumers use it to send money home, and businesses use it for international payments, payouts, and multi-currency accounts in EUR, GBP, and USD, with IBAN, Sort Code, and ACH details. I worked on both the consumer and business sides. On the business side, I built the frontend for two apps. The business dashboard covers accounts, transactions, payouts, beneficiaries, debit requests, and role-based team management. The internal admin console covers business onboarding (KYB), eligibility, pricing plans, and account approvals.",
     role: "Senior Frontend Engineer",
     client: "Prune Payments",
     engagement: "Client engagement via C80 Limited",
