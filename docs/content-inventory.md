@@ -35,7 +35,7 @@ Confirmed by the owner on 2026-11-03.
 
 | Where | Number | Status |
 |---|---|---|
-| Home | Years building (current year minus 2020) | Needs evidence: the 2020 start date is not documented |
+| Home | Years building (current year minus 2020) | Confirmed by the owner: started building for the web in 2020 |
 | Home | Case studies published | Derived: `works.length` |
 | Home | Projects live today | Derived: entries with `isLive`. All eight URLs returned 200 on 2026-11-03 |
 | Prune | 3 currencies, 2 surfaces, 4 backend services | Structural |
