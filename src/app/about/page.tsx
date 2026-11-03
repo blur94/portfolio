@@ -14,7 +14,7 @@ const articles = [
     title: "What I work on",
     body: [
       "Most of my work is taking a process someone already does in spreadsheets, on paper, or across three browser tabs and turning it into a single screen they can work from.",
-      "The projects I'm proudest of share a pattern: a clear operator, a real workflow, and constraints that make the interesting decisions obvious. Prune's money-movement permissions, re:current's bookings and tenancy documents, and Helium ID's identity operations all work that way.",
+      "The projects I'm proudest of share a pattern: a clear user, a real workflow, and constraints that make the interesting decisions obvious. Prune's money-movement permissions, re:current's bookings and tenancy documents, and Helium ID's identity operations all work that way.",
     ],
   },
   {
@@ -27,7 +27,7 @@ const articles = [
   {
     title: "How I think about the work",
     body: [
-      "Operator-grade software has to keep working through feature freezes, pivots, and staff changes, and I write it with that in mind.",
+      "Business software has to keep working through feature freezes, pivots, and staff changes, and I write it with that in mind.",
       "My primary employment is with C80 Limited, and I also take independent contracts scoped to specific features. I work best as a hands-on IC inside an existing team.",
     ],
   },
@@ -104,7 +104,7 @@ export default function About() {
           className="mx-auto max-w-[44ch] text-center text-[22px] leading-[1.4] tracking-[-0.02em]"
           style={{ color: "var(--text-secondary)" }}
         >
-          I build operator dashboards, complex workflows, and the unglamorous, long-lived parts of African internet products, mostly with React, Next.js, and TypeScript.
+          I build dashboards and complex workflows for fintech and SaaS teams, mostly with React, Next.js, and TypeScript.
         </p>
       </section>
 

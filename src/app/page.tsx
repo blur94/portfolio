@@ -56,8 +56,8 @@ export default function Home() {
                   maxWidth: "36ch",
                 }}
               >
-                I build operator-grade web platforms for African fintechs,
-                regtechs, and the boring parts of the stack.
+                I build complex web apps for fintech and SaaS teams, including
+                payment dashboards, permissions, and multi-step workflows.
               </p>
 
               <p
