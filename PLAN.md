@@ -46,12 +46,12 @@ Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` 
 ## Parking Lot
 
 - Content validation script for required case-study fields, duplicate slugs and stale years (TECH-004)
-- First Writing article, then restore the nav link
+- First Writing article, then add it to the sitemap and remove `noindex`
 - Valid "Download CV" link once a canonical CV is published
 - Remove the template `/api/hello` route and the unused `/api/send-email` route
 - Spam protection on the contact form
 - PWA manifest and icons (already added per git history)
-- Blog / article section (referenced in typography scale; `/writing` ships a "Coming Soon" placeholder that is out of the nav)
+- Blog / article section (referenced in typography scale; `/writing` ships a "Coming Soon" placeholder)
 - Light mode polish (dark-first, light mode is secondary)
 - Release-driven production deploys (`production` branch moved by a GitHub Action on release publish) + staging domain for `main`
 - "Back to latest" link on archived `release/v1` site

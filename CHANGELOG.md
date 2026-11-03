@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: Writing back in the nav
+
+- Restored Writing in `Nav.tsx` and `Footer.tsx` at the owner's request. `/writing` stays `noindex` and out of the sitemap until it has an article.
+
 ### 2026-11-03: Audit fixes
 
 - Stopped pages sharing as the homepage: removed the root `openGraph.url` and gave each page its own social title, description and URL.

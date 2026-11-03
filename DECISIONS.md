@@ -177,12 +177,12 @@ Only durable decisions belong here. Always record _why_ — not just what.
 
 ---
 
-### Writing Stays Out of the Nav Until It Has an Article
+### Writing Stays in the Nav and Out of Search
 
 **Date:** 2026-11-03
-**Decision:** Removed Writing from the nav and footer and set `/writing` to `noindex`, keeping the page. This reverses the 2026-06-29 change that linked it.
-**Reason:** A prominent "Coming Soon" page is a dead end for a hiring manager.
-**Implications:** When the first article ships, restore the two nav links and the sitemap entry, and remove `noindex`.
+**Decision:** Writing stays in the nav and footer at the owner's request. `/writing` remains `noindex` and out of the sitemap while it is a "Coming Soon" page.
+**Reason:** The owner wants the section visible, but an empty page shouldn't be indexed.
+**Implications:** When the first article ships, add the sitemap entry and remove `noindex`.
 
 ---
 
