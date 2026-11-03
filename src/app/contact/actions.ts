@@ -10,7 +10,7 @@ export type ContactActionState =
   | { status: 'error'; message: string };
 
 const SEND_FAILED =
-  'Your message did not send. Please email hello@gileadodo.com instead.';
+  'Your message did not send.';
 
 export async function sendContactEmail(
   _prev: ContactActionState,

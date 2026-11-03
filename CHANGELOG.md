@@ -10,6 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### 2026-11-03: Canonical domain
 
 - Set the canonical origin to the apex `https://gileadodo.com`, because www redirects to it. Canonicals, the sitemap, robots and social URLs now point at the apex.
+- Fixed the contact form's fallback address to hello@gileadodo.com, and stopped the failure message naming two addresses.
 
 ### 2026-11-03: C80 and Rework titles
 

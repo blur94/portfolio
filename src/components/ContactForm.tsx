@@ -172,10 +172,10 @@ export function ContactForm() {
         >
           {serverState.message} Try again, or email me directly at{" "}
           <a
-            href="mailto:hello@gileadodo.xyz"
+            href="mailto:hello@gileadodo.com"
             className="underline underline-offset-4"
           >
-            hello@gileadodo.xyz
+            hello@gileadodo.com
           </a>
           .
         </p>
