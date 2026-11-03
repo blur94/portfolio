@@ -2,21 +2,29 @@
 
 import { Resend } from 'resend';
 import ContactFormNotification from '@/components/ContactFormNotification';
-
-type Values = { name: string; email: string; message: string };
+import { contactSchema, type ContactValues } from '@/lib/contact-schema';
 
 export type ContactActionState =
   | { status: 'idle' }
   | { status: 'success' }
   | { status: 'error'; message: string };
 
+const SEND_FAILED =
+  'Your message did not send. Please email hello@gileadodo.com instead.';
+
 export async function sendContactEmail(
   _prev: ContactActionState,
-  values: Values,
+  input: ContactValues,
 ): Promise<ContactActionState> {
+  const parsed = contactSchema.safeParse(input);
+  if (!parsed.success) {
+    return { status: 'error', message: 'Check your details and try again.' };
+  }
+  const values = parsed.data;
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    return { status: 'error', message: 'Email service is not configured.' };
+    return { status: 'error', message: SEND_FAILED };
   }
 
   const resend = new Resend(apiKey);
@@ -36,9 +44,13 @@ export async function sendContactEmail(
       }),
     });
 
-    if (error) return { status: 'error', message: error.message };
+    if (error) {
+      console.error('Resend rejected a contact email', error);
+      return { status: 'error', message: SEND_FAILED };
+    }
     return { status: 'success' };
   } catch (err) {
-    return { status: 'error', message: String(err) };
+    console.error('Contact email failed', err);
+    return { status: 'error', message: SEND_FAILED };
   }
 }

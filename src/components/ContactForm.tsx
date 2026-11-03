@@ -2,7 +2,6 @@
 
 import { useActionState, startTransition, useState } from "react";
 import { useForm, schemaResolver } from "@mantine/form";
-import { z } from "zod";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -13,29 +12,32 @@ import {
 } from "@/app/contact/actions";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-
-const schema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.email("Enter a valid email address"),
-  message: z.string().min(10, "Write at least 10 characters"),
-});
-
-type Values = z.infer<typeof schema>;
+import { contactSchema, type ContactValues } from "@/lib/contact-schema";
 
 export function ContactForm() {
   const [serverState, dispatch, isPending] = useActionState<
     ContactActionState,
-    Values
+    ContactValues
   >(sendContactEmail, { status: "idle" });
 
   const [didReset, setDidReset] = useState(false);
 
-  const form = useForm<Values>({
+  const form = useForm<ContactValues>({
     mode: "controlled",
     initialValues: { name: "", email: "", message: "" },
-    validate: schemaResolver(schema, { sync: true }),
+    validate: schemaResolver(contactSchema, { sync: true }),
     validateInputOnBlur: true,
   });
+
+  // getInputProps returns `error` for Mantine inputs, so map it to ARIA for plain inputs.
+  const fieldProps = (name: keyof ContactValues) => {
+    const { error, ...props } = form.getInputProps(name);
+    return {
+      ...props,
+      "aria-invalid": Boolean(error) || undefined,
+      "aria-describedby": error ? `cf-${name}-error` : undefined,
+    };
+  };
 
   const handleSubmit = form.onSubmit((values) => {
     setDidReset(false);
@@ -102,7 +104,7 @@ export function ContactForm() {
       <Field label="Name" htmlFor="cf-name" error={form.errors.name}>
         <Input
           id="cf-name"
-          {...form.getInputProps("name")}
+          {...fieldProps("name")}
           className="w-full rounded-xl border px-4 py-3.5 text-lg leading-[1.4] tracking-[-0.02em] outline-none transition-colors focus:border-(--text-primary)"
           style={{
             backgroundColor: "var(--bg-page)",
@@ -117,7 +119,7 @@ export function ContactForm() {
         <Input
           id="cf-email"
           type="email"
-          {...form.getInputProps("email")}
+          {...fieldProps("email")}
           className="w-full rounded-xl border px-4 py-3.5 text-lg leading-[1.4] tracking-[-0.02em] outline-none transition-colors focus:border-(--text-primary)"
           style={{
             backgroundColor: "var(--bg-page)",
@@ -132,7 +134,7 @@ export function ContactForm() {
         <Textarea
           id="cf-message"
           rows={6}
-          {...form.getInputProps("message")}
+          {...fieldProps("message")}
           className="min-h-42 w-full resize-y rounded-xl border px-4 py-3.5 text-lg leading-[1.4] tracking-[-0.02em] outline-none transition-colors focus:border-(--text-primary)"
           style={{
             backgroundColor: "var(--bg-page)",
@@ -208,6 +210,7 @@ function Field({
       {children}
       {error && (
         <p
+          id={`${htmlFor}-error`}
           className="text-sm text-destructive"
           style={{ fontFamily: "var(--font-heading)" }}
         >
