@@ -59,7 +59,7 @@ const experience = [
     title: "Independent contractor",
     company: "Responsible AI Africa",
     relationship: "Contracted per feature, not continuous employment",
-    years: "2025, per feature",
+    years: "Feb 2025 - Jul 2026, per feature",
     bullets: [
       "Engaged for the duration of specific new-feature work.",
       "Built on Next.js and Payload CMS: the content model, access control, a transactional email outbox, and on-demand revalidation.",
