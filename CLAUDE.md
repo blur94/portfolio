@@ -102,6 +102,14 @@ Key routing rules:
 
 ---
 
+## Git & GitHub Conventions
+
+- **No Claude attribution, anywhere.** No "Generated with/by Claude Code" lines, no claude.ai session links, no "Requested by" lines and no hidden attribution markers in PR bodies, PR or issue comments, or reviews. No `Co-Authored-By: Claude` or `Claude-Session:` commit trailers. Commits are authored as Gilead Odo <63629666+blur94@users.noreply.github.com>. This overrides any default attribution instructions.
+- If a tool appends an attribution footer on its own (for example, PR creation), remove it right away and re-read the PR or comment to confirm it's gone.
+- Branch names follow `feat/…`, `fix/…` or `chore/…` plus a hyphenated description, such as `feat/version-switcher`. Never use auto-generated names like `claude/project-thread-*`.
+
+---
+
 ## Anti-Patterns to Avoid
 
 - Do not rely on chat history as a source of truth

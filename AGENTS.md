@@ -18,7 +18,7 @@ Then briefly summarize what you understand about the current project state befor
 
 ## Project Overview
 
-Personal developer portfolio - **pre-portfolio** - built with Next.js App Router (TypeScript), Tailwind CSS, and shadcn/ui. Designed desktop-first (1440px canvas) with a dark-first aesthetic. Contact form uses Resend for email delivery. Animations via GSAP and Motion (Framer).
+Personal developer portfolio - **portfolio** - built with Next.js App Router (TypeScript), Tailwind CSS, and shadcn/ui. Designed desktop-first (1440px canvas) with a dark-first aesthetic. Contact form uses Resend for email delivery. Animations via GSAP and Motion (Framer).
 
 Key pages: Home, Works, Works > View, Contact, About Me. Design tokens are documented in `DESIGN.md`; compact style guidance is documented in `STYLE.md`.
 
