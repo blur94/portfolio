@@ -143,14 +143,15 @@ export default async function WorkView({ params }: WorkPageProps) {
 
       <section className="mx-auto w-full max-w-[1440px] px-6 pb-24 md:px-10 lg:px-20">
         <figure className="overflow-hidden rounded-3xl border border-border bg-card">
-          <div className="relative aspect-video w-full">
+          <div className="relative aspect-4/3 w-full">
             <Image
               src={work.coverImage}
               alt={`${work.title} project snapshot`}
               fill
               priority
-              sizes="(min-width: 1280px) 1280px, calc(100vw - 48px)"
-              className="object-cover"
+              quality={90}
+              sizes="(min-width: 1440px) 1280px, calc(100vw - 48px)"
+              className="object-contain"
             />
           </div>
           <figcaption className="border-t border-border px-5 py-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
@@ -209,9 +210,9 @@ export default async function WorkView({ params }: WorkPageProps) {
         {work.process.map((step, index) => (
           <article
             key={step.title}
-            className="grid gap-8 lg:grid-cols-[minmax(0,0.62fr)_minmax(360px,0.38fr)] lg:items-center"
+            className="flex flex-col gap-10"
           >
-            <div className={index % 2 === 1 ? "lg:order-2" : undefined}>
+            <div className="max-w-3xl">
               <p className="mb-4 font-mono text-sm text-primary">
                 {String(index + 1).padStart(2, "0")}
               </p>
@@ -330,15 +331,15 @@ function ArtifactBlock({
 
   return (
     <figure className="overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-black/30">
-      <div className="relative aspect-[4/3] w-full">
-        <Image
-          src={artifact.src}
-          alt={title}
-          fill
-          sizes="(min-width: 1024px) 420px, calc(100vw - 48px)"
-          className="object-cover"
-        />
-      </div>
+      <Image
+        src={artifact.src}
+        alt={title}
+        width={artifact.width}
+        height={artifact.height}
+        quality={90}
+        sizes="(min-width: 1200px) 1040px, calc(100vw - 48px)"
+        className="h-auto max-h-[85vh] w-full object-contain"
+      />
     </figure>
   );
 }

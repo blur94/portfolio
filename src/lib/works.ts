@@ -1,5 +1,5 @@
 export type WorkArtifact =
-  | { kind: "image"; src: string }
+  | { kind: "image"; src: string; width: number; height: number }
   | { kind: "code"; body: string };
 
 export type WorkProcessStep = {
@@ -68,17 +68,32 @@ export const works: Work[] = [
       {
         title: "Two apps, one codebase",
         body: "The platform serves two different users, businesses operating their own accounts and Prune staff vetting those businesses. I split them into separate Next.js route groups, each with its own layout, navigation, and permission model, so business and staff flows stay apart.",
-        artifact: { kind: "image", src: "/projects/prune/customer.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/prune/customer.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Role-based permissions",
         body: "I built RBAC around an initiator/approver pattern. A useHasPermission hook gates sensitive actions such as transaction initiation and approvals, so the UI changes with each team member's role instead of relying on a single admin flag.",
-        artifact: { kind: "image", src: "/projects/prune/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/prune/cover.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Multi-currency accounts and money movement",
         body: "Each account has its own IBAN, Sort Code, or ACH Routing details across EUR, GBP, and USD, with per-currency transaction views, payouts, and downloadable statements. The client generates receipts and statements as PDF and exports them to Excel, matching what's on screen.",
-        artifact: { kind: "image", src: "/projects/prune/customer.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/prune/customer.png",
+          width: 1920,
+          height: 1440,
+        },
       },
     ],
     outcomes: [
@@ -116,17 +131,32 @@ export const works: Work[] = [
       {
         title: "Separating landlord and guest areas",
         body: "The platform serves two different users, landlords managing their properties and guests booking short-lets. I split these into separate route groups, (landlord) for the authenticated landlord dashboard and (public) for guest-facing property listings and booking pages. Each area has its own layout, auth logic, and data loading.",
-        artifact: { kind: "image", src: "/projects/recurrent/banking.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/recurrent/banking.png",
+          width: 1905,
+          height: 1350,
+        },
       },
       {
         title: "A per-unit availability calendar",
         body: "Short-let and hotel bookings need per-unit availability tracking across multiple days, with OTA channel sync to prevent double-bookings. I built the calendar view on Schedule-X and connected it to the booking state. Each day cell shows which units are available, occupied, or pending, so the landlord doesn't need to check a separate list.",
-        artifact: { kind: "image", src: "/projects/recurrent/shortlets.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/recurrent/shortlets.png",
+          width: 1920,
+          height: 941,
+        },
       },
       {
         title: "PDF generation for agreements and invoices",
         body: "Tenants sign tenancy agreements and landlords store them and invoices for years. No single PDF library handled both structured agreement layouts and invoice snapshots well, so I used react-pdf/renderer for agreements and jspdf with html2canvas for invoices. The output matches what's on screen.",
-        artifact: { kind: "image", src: "/projects/recurrent/invoice.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/recurrent/invoice.png",
+          width: 1654,
+          height: 2339,
+        },
       },
     ],
     outcomes: [
@@ -165,7 +195,12 @@ export const works: Work[] = [
       {
         title: "An operator dashboard for identity ops",
         body: "I built the admin portal's verifications, events, insights, billing, and team modules on TanStack Query and Table with Recharts analytics. Filters and pagination use nuqs URL state, and auth and workspace state live in Zustand stores. Each verification row tracks status (started, successful, failed), method, and the API key that initiated it.",
-        artifact: { kind: "image", src: "/projects/heliumid/light.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/heliumid/light.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Server-validated auth",
@@ -306,17 +341,32 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
       {
         title: "Model the ecosystem, then build the screens",
         body: "I defined the Payload collections for directories, funding, events, jobs, insights, international initiatives, and countries, plus the relationships between them, before building the public UI. That gave the editorial team a connected system to fill in.",
-        artifact: { kind: "image", src: "/projects/raia/countries.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/raia/countries.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Publishing without a deploy",
         body: "The editorial team can't wait for a deploy to publish. On-demand revalidation hooks in the collections mean a single Payload edit invalidates the affected pages, so content goes live in seconds with no redeploy and no stale cache.",
-        artifact: { kind: "image", src: "/projects/raia/admin.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/raia/admin.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "A persisted email outbox",
         body: "Newsletter and contact flows can't silently drop messages. I modelled an EmailOutbox collection that stores every transactional send, so the team can inspect, retry, and audit each one.",
-        artifact: { kind: "image", src: "/projects/raia/light.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/raia/light.png",
+          width: 1920,
+          height: 1440,
+        },
       },
     ],
     outcomes: [
@@ -353,12 +403,22 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
       {
         title: "Content architecture before components",
         body: "The publishing flow had to scale across reports, insights, and category pages. Before I built any components, I mapped the content types from Contentful and Sanity and set the column widths, typographic rhythm, and spacing scale each one needed.",
-        artifact: { kind: "image", src: "/projects/verivafrica/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/verivafrica/cover.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Adapting Mantine for long-form reading",
         body: "Mantine defaults toward data-dense UIs. A long-form editorial platform needs tighter leading, a wider measure, and quieter chrome. I reworked the type and spacing system for long reading and kept the component library consistent underneath.",
-        artifact: { kind: "image", src: "/projects/verivafrica/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/verivafrica/cover.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Restrained motion",
@@ -416,12 +476,22 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
       {
         title: "A metrics-first dashboard",
         body: "The landing page shows downloads, posts, and users first, then breaks the user base down by age, gender, and country. Server Actions fetch metrics and visitors using the session token from cookies. Mantine donut charts and a paginated visitor table tagged by sport display the data.",
-        artifact: { kind: "image", src: "/projects/qatapolt/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/qatapolt/cover.png",
+          width: 1920,
+          height: 1536,
+        },
       },
       {
         title: "A moderation queue",
         body: "Each report shows the category (harassment, spam, fraud, impersonation), reason, reporter, and status. I focused on removing extra clicks between seeing a problem and resolving it, so block and delete actions sit inline.",
-        artifact: { kind: "image", src: "/projects/qatapolt/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/qatapolt/cover.png",
+          width: 1920,
+          height: 1536,
+        },
       },
       {
         title: "Forwarding auth through every Server Action",
@@ -558,17 +628,32 @@ return await action();`,
       {
         title: "Local-first intake",
         body: "I built the ops UI on RxDB (IndexedDB) with custom pull/push sync endpoints. Staff can read and write item intake and person-cases offline, and changes replicate when the connection returns. Forms try the server first, then fall back to creating the record locally on network failure.",
-        artifact: { kind: "image", src: "/projects/reunitar/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/reunitar/cover.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Conflict resolution and offline auth",
         body: "I added conflict resolution, where the server version wins automatically and a merge UI handles real divergence. A signed session-cache JWT keeps authentication working through a 24-hour database outage, so staff can keep working at a live event.",
-        artifact: { kind: "image", src: "/projects/reunitar/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/reunitar/cover.png",
+          width: 1920,
+          height: 1440,
+        },
       },
       {
         title: "Semantic matching and a smaller backend",
         body: "Lost items rarely match found items by exact words (\"black hoodie\" vs \"dark sweatshirt\"), so I added vector and hybrid search with a keyword fallback. I then moved the embedding pipeline from PostgreSQL, pgvector, Redis, BullMQ, and OpenAI to MongoDB Atlas Automated Embeddings (Voyage AI). Atlas embeds on write, which removed four parts from the backend.",
-        artifact: { kind: "image", src: "/projects/reunitar/cover.png" },
+        artifact: {
+          kind: "image",
+          src: "/projects/reunitar/cover.png",
+          width: 1920,
+          height: 1440,
+        },
       },
     ],
     outcomes: [
