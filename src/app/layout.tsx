@@ -36,6 +36,10 @@ export const metadata: Metadata = {
       "Portfolio of Gilead Odo — software developer exploring the intersection of design, music, and code.",
     creator: "@balmofcodes",
   },
+  // Archived v1 served at v1.gileadodo.com — keep it out of search results
+  // and point search engines at the current site.
+  robots: { index: false, follow: true },
+  alternates: { canonical: "https://gileadodo.com/" },
 };
 
 export const viewport: Viewport = {
