@@ -11,6 +11,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Added the Prune end date to About: the engagement ran from July 2024 to September 2026, as confirmed by the owner.
 - Added the Qatapolt end date to About: May to July 2024, as confirmed by the owner.
+- Added the Veriv Africa end date to About: January to March 2024, as confirmed by the owner. The contractor row now reads Jan 2024 - Jul 2024, since both contracts have ended.
 
 ### 2026-11-03: Canonical domain
 

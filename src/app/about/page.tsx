@@ -69,9 +69,9 @@ const experience = [
     title: "Frontend contractor",
     company: "Veriv Africa, Qatapolt",
     relationship: "Contract work",
-    years: "From Jan 2024, per project",
+    years: "Jan 2024 - Jul 2024, per project",
     bullets: [
-      "Veriv Africa, from January 2024: built the frontend for the editorial article and insights system, with long-form content from two CMSes.",
+      "Veriv Africa, January to March 2024: built the frontend for the editorial article and insights system, with long-form content from two CMSes.",
       "Qatapolt, May to July 2024: built the admin dashboard for platform metrics, moderation, news, and trophies.",
     ],
   },
