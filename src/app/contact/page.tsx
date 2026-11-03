@@ -7,7 +7,8 @@ import { ContactForm } from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Gilead Odo for focused frontend and design engineering projects.",
+    "Get in touch with Gilead Odo about remote frontend contracts and senior frontend roles.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -45,9 +46,9 @@ export default function ContactPage() {
               className="mb-10 max-w-[60ch] text-[22px] leading-[1.4] tracking-[-0.03em]"
               style={{ color: "var(--text-muted)" }}
             >
-              I&rsquo;m taking on one or two new projects each quarter. Tell me
-              what you&rsquo;re building and I&rsquo;ll write back within two
-              working days.
+              Hiring for a senior frontend role, or need help on a React or
+              Next.js build? Tell me what you&apos;re working on and I&apos;ll
+              write back by email.
             </p>
             <a
               href="#contact-form"

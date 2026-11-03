@@ -6,7 +6,7 @@ interface KickerProps {
 }
 
 /**
- * Kicker — small all-caps label with a leading rule, used above section headings.
+ * Kicker: small all-caps label with a leading rule, used above section headings.
  * Tailwind translation of .kicker from the Plinth handoff CSS.
  */
 export function Kicker({ children, className }: KickerProps) {

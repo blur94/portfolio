@@ -6,7 +6,16 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
+import {
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockLine,
+} from "@/components/ui/code-block";
 import { CountStat } from "@/components/CountStat";
+import { highlightCode } from "@/lib/highlighter";
+import { sharedOpenGraph } from "@/lib/site";
 import type { WorkArtifact } from "@/lib/works";
 import { nextOf, works } from "@/lib/works";
 
@@ -33,9 +42,27 @@ export async function generateMetadata({
 
   if (!work) return {};
 
+  const title = `${work.title} case study`;
+  const description = `${work.descriptor} ${work.role} work by Gilead Odo.`;
+
   return {
-    title: work.title,
-    description: work.overview,
+    title,
+    description,
+    alternates: { canonical: `/works/${work.slug}` },
+    openGraph: {
+      ...sharedOpenGraph,
+      title,
+      description,
+      type: "article",
+      url: `/works/${work.slug}`,
+      images: [{ url: work.coverImage, alt: `${work.title} project snapshot` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [work.coverImage],
+    },
   };
 }
 
@@ -46,8 +73,11 @@ export default async function WorkView({ params }: WorkPageProps) {
   if (!work) notFound();
 
   const nextWork = nextOf(work.slug);
-  const mastheadItems: KeyValue[] = [
-    { label: "Client", value: work.client },
+  const mastheadItems = [
+    {
+      label: work.client ? "Client" : "Engagement",
+      value: work.client ?? work.engagement,
+    },
     { label: "Year", value: work.year },
     { label: "Category", value: work.category },
     {
@@ -56,16 +86,18 @@ export default async function WorkView({ params }: WorkPageProps) {
       href: work.liveUrl,
       gated: work.liveUrlGated,
     },
-  ];
+  ].filter((item): item is KeyValue => Boolean(item.value));
   const roleItems: KeyValue[] = [
     { label: "Role", value: work.role },
-    { label: "Team", value: work.client },
+    ...(work.client ? [{ label: "Client", value: work.client }] : []),
+    ...(work.engagement
+      ? [{ label: "Engagement", value: work.engagement }]
+      : []),
     { label: "Stack", value: work.tags.join(", ") },
-    { label: "Engagement", value: work.descriptor },
   ];
 
   return (
-    <main className="bg-background text-foreground">
+    <div className="bg-background text-foreground">
       <section className="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-6 py-16 md:px-10 lg:px-20 lg:py-24">
         <Link
           href="/works"
@@ -124,14 +156,15 @@ export default async function WorkView({ params }: WorkPageProps) {
 
       <section className="mx-auto w-full max-w-[1440px] px-6 pb-24 md:px-10 lg:px-20">
         <figure className="overflow-hidden rounded-3xl border border-border bg-card">
-          <div className="relative aspect-video w-full">
+          <div className="relative aspect-4/3 w-full">
             <Image
               src={work.coverImage}
               alt={`${work.title} project snapshot`}
               fill
               priority
-              sizes="(min-width: 1280px) 1280px, calc(100vw - 48px)"
-              className="object-cover"
+              quality={90}
+              sizes="(min-width: 1440px) 1280px, calc(100vw - 48px)"
+              className="object-contain"
             />
           </div>
           <figcaption className="border-t border-border px-5 py-4 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
@@ -142,14 +175,14 @@ export default async function WorkView({ params }: WorkPageProps) {
 
       <section className="mx-auto grid w-full max-w-[1120px] gap-16 px-6 pb-24 md:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.65fr)]">
         <div>
-          <SectionKicker>Context</SectionKicker>
+          <SectionHeading>Context</SectionHeading>
           <p className="mt-5 text-2xl leading-[1.45] tracking-[-0.04em] text-foreground md:text-3xl">
             {work.context}
           </p>
         </div>
 
         <div>
-          <SectionKicker>Constraints</SectionKicker>
+          <SectionHeading>Constraints</SectionHeading>
           <ol className="mt-6 flex flex-col border-t border-border">
             {work.constraints.map((constraint, index) => (
               <li
@@ -167,7 +200,7 @@ export default async function WorkView({ params }: WorkPageProps) {
       </section>
 
       <section className="mx-auto w-full max-w-[1120px] px-6 pb-28 md:px-10">
-        <SectionKicker>Role & Team</SectionKicker>
+        <SectionHeading>Role & Team</SectionHeading>
         <dl className="mt-6 border-t border-border">
           {roleItems.map((item) => (
             <div
@@ -186,34 +219,33 @@ export default async function WorkView({ params }: WorkPageProps) {
       </section>
 
       <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-24 px-6 pb-28 md:px-10 lg:px-20">
-        <SectionKicker>Process</SectionKicker>
+        <SectionHeading>Process</SectionHeading>
         {work.process.map((step, index) => (
           <article
             key={step.title}
-            className="grid gap-8 lg:grid-cols-[minmax(0,0.62fr)_minmax(360px,0.38fr)] lg:items-center"
+            className="flex flex-col gap-10"
           >
-            <div className={index % 2 === 1 ? "lg:order-2" : undefined}>
+            <div className="max-w-3xl">
               <p className="mb-4 font-mono text-sm text-primary">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h2 className="text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-5xl">
+              <h3 className="text-2xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-[32px]">
                 {step.title}
-              </h2>
+              </h3>
               <p className="mt-6 text-lg leading-[1.7] text-muted-foreground md:text-xl">
                 {step.body}
               </p>
             </div>
-            <ArtifactBlock title={step.title} artifact={step.artifact} />
+            {step.artifact ? (
+              <ArtifactBlock title={step.title} artifact={step.artifact} />
+            ) : null}
           </article>
         ))}
       </section>
 
       <section className="bg-card py-24">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-12 px-6 text-center md:px-10 lg:px-20">
-          <SectionKicker>Outcome</SectionKicker>
-          <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-6xl">
-            The measurable shape of the work.
-          </h2>
+          <SectionHeading>Outcome</SectionHeading>
           <div className="grid w-full gap-10 md:grid-cols-3">
             {work.outcomes.map((outcome) => (
               <CountStat
@@ -227,7 +259,7 @@ export default async function WorkView({ params }: WorkPageProps) {
       </section>
 
       <section className="mx-auto w-full max-w-[840px] px-6 py-28 md:px-10">
-        <SectionKicker>Lessons</SectionKicker>
+        <SectionHeading>Lessons</SectionHeading>
         <p className="mt-6 text-2xl leading-[1.5] tracking-[-0.04em] text-foreground md:text-4xl">
           {work.lessons}
         </p>
@@ -250,15 +282,15 @@ export default async function WorkView({ params }: WorkPageProps) {
           Next: {nextWork.title}
         </Link>
       </nav>
-    </main>
+    </div>
   );
 }
 
-function SectionKicker({ children }: { children: ReactNode }) {
+function SectionHeading({ children }: { children: ReactNode }) {
   return (
-    <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
+    <h2 className="text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-5xl">
       {children}
-    </p>
+    </h2>
   );
 }
 
@@ -294,7 +326,7 @@ function KeyValueRow({ label, value, href, gated }: KeyValue) {
   );
 }
 
-function ArtifactBlock({
+async function ArtifactBlock({
   title,
   artifact,
 }: {
@@ -302,24 +334,35 @@ function ArtifactBlock({
   artifact: WorkArtifact;
 }) {
   if (artifact.kind === "code") {
+    const lines =
+      (await highlightCode(artifact.body, artifact.language)) ??
+      artifact.body.split("\n");
+
     return (
-      <pre className="overflow-x-auto rounded-3xl border border-border bg-[#161820] p-6 text-sm leading-relaxed text-white shadow-2xl shadow-black/30">
-        <code>{artifact.body}</code>
-      </pre>
+      <CodeBlock className="rounded-3xl border-border bg-(--bg-code) shadow-2xl shadow-black/30 dark:bg-(--bg-code)">
+        <CodeBlockActions>
+          <CodeBlockCopyButton value={artifact.body} />
+        </CodeBlockActions>
+        <CodeBlockContent className="p-6">
+          {lines.map((line, index) => (
+            <CodeBlockLine key={index}>{line}</CodeBlockLine>
+          ))}
+        </CodeBlockContent>
+      </CodeBlock>
     );
   }
 
   return (
     <figure className="overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-black/30">
-      <div className="relative aspect-[4/3] w-full">
-        <Image
-          src={artifact.src}
-          alt={title}
-          fill
-          sizes="(min-width: 1024px) 420px, calc(100vw - 48px)"
-          className="object-cover"
-        />
-      </div>
+      <Image
+        src={artifact.src}
+        alt={title}
+        width={artifact.width}
+        height={artifact.height}
+        quality={90}
+        sizes="(min-width: 1200px) 1040px, calc(100vw - 48px)"
+        className="h-auto max-h-[85vh] w-full object-contain"
+      />
     </figure>
   );
 }

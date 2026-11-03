@@ -4,6 +4,9 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+  images: {
+    qualities: [75, 90],
+  },
 }
 
 module.exports = nextConfig

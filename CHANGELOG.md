@@ -7,6 +7,82 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: Canonical domain
+
+- Added `lastmod` to every sitemap URL from a hand-set content date (`updatedAt` on each work, `pageUpdatedAt` in `sitemap.ts`), so search engines recrawl the corrected pages sooner.
+- Set the canonical origin to the apex `https://gileadodo.com`, because www redirects to it. Canonicals, the sitemap, robots and social URLs now point at the apex.
+- Fixed the contact form's fallback address to hello@gileadodo.com, and stopped the failure message naming two addresses.
+
+### 2026-11-03: C80 and Rework titles
+
+- Updated the C80 row on About to "Senior frontend engineer", as confirmed by the owner.
+- Described Prune as a cross-border payments platform and added the consumer side of the work, as confirmed by the owner.
+- Added Veriv Africa and Qatapolt start dates to About, from each repository's commit history.
+- Added the confirmed Responsible AI Africa contract period, February 2025 to July 2026, to About.
+- Changed the Prune start on About to July 2024, the date of the first commit in its repository, as the owner directed.
+- Updated the Rework Academy row to "Full-stack software developer trainee", as confirmed by the owner.
+
+### 2026-11-03: Writing back in the nav
+
+- Restored Writing in `Nav.tsx` and `Footer.tsx` at the owner's request. `/writing` stays `noindex` and out of the sitemap until it has an article.
+
+### 2026-11-03: Audit fixes
+
+- Stopped pages sharing as the homepage: removed the root `openGraph.url` and gave each page its own social title, description and URL.
+- Added `src/lib/site.ts` as the single source for the site URL and shared social metadata.
+- Added Prisma highlighting, and made `highlightCode` return plain lines on failure without caching a rejected highlighter.
+- Made `artifact` optional in `src/lib/works.ts` and removed repeated images from the Prune, Qatapolt, Veriv Africa and Reunitar Process steps.
+- Removed the possibility of an empty masthead row on case studies.
+
+### 2026-11-03: Hero wording and project attribution
+
+- Rewrote the hero for remote hiring managers, and replaced "operator-grade" and "a clear operator" on About.
+- Moved the Prune dashboard into the hero in place of Veriv Africa.
+- Corrected Veriv Africa to 10 thematic areas, and labelled FarmGrow's 15s as an estimate.
+- Changed "operator" to "landlord" throughout the re:current case study, and removed "operator" from the rest of the site at the owner's request.
+- Added confirmed engagement types to every project: Paystat, re:current and Helium ID built under C80, Veriv Africa and Qatapolt as contract work, FarmGrow and Reunitar as personal projects. Added a contract row on About.
+- Made `client` optional, so personal projects don't list themselves as a client.
+
+### 2026-11-03: Hero image and contact form
+
+- Replaced the hero screenshot with `public/projects/prune/hero.png`, cropped from the Prune cover so it doesn't show a browser frame inside a browser frame. `BrowserFrame.tsx` now uses `next/image` with `priority`, so the image no longer loads late as a CSS background.
+- Added `src/lib/contact-schema.ts`, shared by the form and `sendContactEmail`, so the server validates submissions too.
+- Stopped showing raw provider errors to visitors, and linked form errors to fields with `aria-invalid` and `aria-describedby`.
+- Added a screen-reader `h2` to `/works` so the heading order doesn't skip a level.
+
+### 2026-11-03: shadcn code block on case studies
+
+- Added `src/components/ui/code-block.tsx` and `src/lib/highlighter.tsx` from the shadcn `base-maia` registry, adapted to the repo's `cn` import and Phosphor icons. Left `button.tsx` unchanged because it already has the `icon-xs` size.
+- `src/app/works/[slug]/page.tsx`: code steps now use the component with a copy button, themed for light and dark. Shiki highlights on the server, so it stays out of the client bundle.
+- Added `language` to code artifacts in `src/lib/works.ts`. Prisma isn't in the highlighter's language list, so that snippet renders as plain text.
+- Added the `shiki` dependency.
+
+### 2026-11-03: Uncropped case-study images
+
+- `src/app/works/[slug]/page.tsx`: stacked each Process step so its image or code runs the full content width, and stopped cropping images. Added `width` and `height` to image artifacts in `src/lib/works.ts`.
+- Requested screenshots at quality 90 (`images.qualities` in `next.config.js`) and corrected `sizes`, so the browser no longer picks a file sized for a 420px column.
+- The case-study cover now fits a 4:3 frame without cropping.
+- Turned the small case-study section labels (Context, Constraints, Role & Team, Process, Outcome, Lessons) into real `h2` headings, with step titles as `h3`.
+
+### 2026-11-03: Em-dash and AI-pattern removal
+
+- Removed every em-dash and en-dash from `src/`, and rewrote case-study, home, About, contact and Writing copy to the unslop rules without adding facts.
+- Replaced mannered case-study step titles in `src/lib/works.ts` with literal ones.
+- Kept curly apostrophes only in the large serif headlines, where a straight one looks wrong at that size.
+
+### 2026-11-03: Credibility and conversion pass
+
+- `src/app/about/page.tsx`: replaced the template timeline with C80 Limited as primary employment, Prune and DAM NG as work through C80, Responsible AI Africa as a separate per-feature contract, and Rework Academy. Removed claims nothing supports.
+- `src/lib/works.ts`: added an optional `engagement` field, set it for Prune and Raia, removed unsupported business metrics, and reordered entries to lead with Prune, re:current and Helium ID.
+- `src/app/page.tsx`: added a role and stack line and a "Discuss a contract" CTA. Replaced "8 repeat clients" with stats derived from `works`, and fixed the template hero alt text and Lagos caption.
+- `src/components/AvailabilityCard.tsx`, `src/app/contact/page.tsx`, `ContactForm.tsx`: removed the auto-dated "Available from" claim, quarterly capacity and reply-time promises.
+- `src/components/CountStat.tsx`: the server now renders the final value, so no-JS visitors and crawlers don't see 0. The accessible name stays on the final value, reduced motion no longer risks a hydration mismatch, and date-like values don't animate. The count-up itself is unchanged.
+- `src/components/ProjectCard.tsx`, `src/app/works/[slug]/page.tsx`: cards show role, engagement, stack and a private-build chip. The case-study "Team" and "Engagement" rows no longer repeat the client and descriptor.
+- SEO: added `sitemap.ts`, `robots.ts`, `opengraph-image.tsx`, `metadataBase`, canonicals and per-case-study social metadata. Replaced the "design, music, and code" descriptions and the "MyWebSite" manifest name.
+- Accessibility: removed `maximumScale: 1`, which blocked pinch zoom, and the nested `<main>` on case studies.
+- `src/components/Footer.tsx`: fixed the LinkedIn URL. Writing left the nav and footer, and `/writing` is `noindex` until it has an article.
+- `docs/content-inventory.md` (new): route-to-source map, status of each number, and removed claims.
+
 ### 2026-11-03 — Rename project to "portfolio"
 
 - Renamed the project from `pre-portfolio` to `portfolio` in `package.json` and the repo memory file headers, ahead of the GitHub repo rename.

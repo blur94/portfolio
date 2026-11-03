@@ -43,7 +43,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/gileadodo",
+    href: "https://www.linkedin.com/in/gilead-odo",
     icon: (
       <svg
         role="img"
@@ -90,10 +90,10 @@ export function Footer() {
       >
         {/* 3-column: wordmark | nav links | social icons */}
         <div className="grid grid-cols-1 gap-8 py-12 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-12 md:py-16 md:pb-8">
-          {/* Left — wordmark */}
+          {/* Left: wordmark */}
           <Logo asLink iconClassName="h-10 w-10" />
 
-          {/* Center — nav links */}
+          {/* Center: nav links */}
           <nav
             className="flex flex-wrap items-center justify-start gap-x-6 gap-y-2 md:justify-center"
             aria-label="Footer"
@@ -131,7 +131,7 @@ export function Footer() {
             )}
           </nav>
 
-          {/* Right — social icons */}
+          {/* Right: social icons */}
           <div
             className="flex items-center justify-start gap-4 md:justify-end"
             role="group"

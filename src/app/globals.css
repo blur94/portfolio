@@ -87,7 +87,7 @@
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
 
-  /* Plinth design tokens — light mode */
+  /* Plinth design tokens: light mode */
   --bg-page: #ffffff;
   --bg-nav: #f5f5f5;
   --bg-surface: #ebebeb;
@@ -156,7 +156,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
 
-  /* Plinth design tokens — dark mode */
+  /* Plinth design tokens: dark mode */
   --bg-page: #000000;
   --bg-nav: #131313;
   --bg-surface: #303031;
@@ -194,7 +194,7 @@
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
 
-  /* Plinth design tokens — light mode (mirrors :root) */
+  /* Plinth design tokens: light mode (mirrors :root) */
   --bg-page: #ffffff;
   --bg-nav: #f5f5f5;
   --bg-surface: #ebebeb;
@@ -298,7 +298,7 @@
 }
 
 /* Full-viewport placeholder pages (e.g. /writing) center their content via
-   flex-1 and don't need the footer's standard top gap — dropping it lets the
+   flex-1 and don't need the footer's standard top gap: dropping it lets the
    nav + content + footer fit within the viewport without vertical scroll. */
 body:has([data-fit-viewport]) footer {
   margin-top: 0;

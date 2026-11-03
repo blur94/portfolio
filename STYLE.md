@@ -25,10 +25,12 @@ Design is desktop-first around a 1440px canvas, with responsive behavior added w
 | Icons | Phosphor icon preset in shadcn config, plus inline SVGs where already used |
 | Animation | GSAP, `@gsap/react`, Motion, ReactBits-inspired visual components |
 | Theme | `next-themes`, dark-first |
-| Email | Resend via `/api/send-email` |
+| Email | Resend via the `sendContactEmail` server action |
 | Package manager | pnpm |
 
-Do not copy dependencies from another project into this one unless the feature actually needs them. This repo currently does not include Zod env validation, markdown rendering, Shiki, unified, or custom named color themes.
+Shiki highlights case-study code on the server through `src/lib/highlighter.tsx`.
+
+Do not copy dependencies from another project into this one unless the feature actually needs them. This repo currently does not include Zod env validation, markdown rendering, unified, or custom named color themes.
 
 ---
 

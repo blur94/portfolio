@@ -159,6 +159,60 @@ Only durable decisions belong here. Always record _why_ — not just what.
 
 ---
 
+### Portfolio Claims Need a Source
+
+**Date:** 2026-11-03
+**Decision:** Employer relationships, dates and numbers on the site must come from the owner or be derivable from code. C80 Limited is the primary employer, Prune and DAM NG are shown as work through C80, and Responsible AI Africa is a separate per-feature contract. `Work.engagement` is set only when the relationship is confirmed. The status of each number lives in `docs/content-inventory.md`.
+**Reason:** Template and unsupported claims contradicted the owner's CVs and undermine credibility with hiring managers.
+**Implications:** Add a metric only with evidence and permission to publish it. Never infer an engagement type for a project.
+
+---
+
+### Stat Counters Render Their Final Value on the Server
+
+**Date:** 2026-11-03
+**Decision:** `CountStat` server-renders the final value and resets to 0 on the client only when it is going to animate. It updates the DOM through a ref rather than state.
+**Reason:** Crawlers and no-JS visitors saw 0, and reading `matchMedia` during render risked a hydration mismatch.
+**Implications:** A stat already in view during hydration briefly shows its final value before counting up. Stats below the fold are not affected.
+
+---
+
+### Writing Stays in the Nav and Out of Search
+
+**Date:** 2026-11-03
+**Decision:** Writing stays in the nav and footer at the owner's request. `/writing` remains `noindex` and out of the sitemap while it is a "Coming Soon" page.
+**Reason:** The owner wants the section visible, but an empty page shouldn't be indexed.
+**Implications:** When the first article ships, add the sitemap entry and remove `noindex`.
+
+---
+
+### Shiki for Case-Study Code
+
+**Date:** 2026-11-03
+**Decision:** Case-study code uses the shadcn `code-block` component, with Shiki highlighting on the server through `highlightCode` in `src/lib/highlighter.tsx`. It uses Shiki's JavaScript regex engine.
+**Reason:** The owner asked for the shadcn component. Server highlighting keeps Shiki out of the client bundle, and the code is static.
+**Implications:** Add a language to the `languages` map before using it. If highlighting fails, the block renders plain lines instead of failing the page. `useHighlightedCode` was not installed because nothing highlights on the client.
+
+---
+
+### Sitemap lastmod Is a Hand-Set Content Date
+
+**Date:** 2026-11-03
+**Decision:** Each sitemap URL carries `lastmod` from a date set by hand: `updatedAt` on each work in `src/lib/works.ts`, and `pageUpdatedAt` in `src/app/sitemap.ts` for static pages. Build time and git dates are not used.
+**Reason:** Search engines only trust `lastmod` when it changes with real content. A build-time date changes on every deploy and teaches them to ignore it.
+**Implications:** Bump a page's date when its content changes, and leave it alone for code or styling changes. New works must set `updatedAt`.
+
+---
+
+### One Site URL
+
+**Date:** 2026-11-03
+**Decision:** `siteUrl` and `sharedOpenGraph` in `src/lib/site.ts` are the single source for the canonical origin and shared social metadata. Each page sets its own `openGraph` title, description and URL.
+**Reason:** Pages that inherited the root `openGraph` shared as the homepage.
+**Implications:** Next.js replaces a parent's `openGraph` object, so a new page must spread `sharedOpenGraph` and set its own values.
+
+---
+
 <!-- ═══════════════════════════════════════════════════════════════
      MULTI-AGENT ORG UPGRADE
      Frozen routing rules for the multi-agent org. HR must apply them

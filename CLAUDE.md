@@ -84,7 +84,7 @@ pnpm start    # Run production build locally (requires pnpm build first)
 - **shadcn backed by `@base-ui/react`** (not Radix UI). Use `render={<Link href="..." />}` + `nativeButton={false}` for link-buttons; `asChild` is banned.
 - **Font CSS variables** — `--font-display` (Instrument Serif italic), `--font-heading` (Visby CF), `--font-body` (Inter). All wired in `src/app/layout.tsx`.
 - **Project data** — all works content lives in `src/lib/works.ts` as a typed static array; `works/[slug]/page.tsx` uses `generateStaticParams`.
-- **Contact email** — `src/app/api/send-email/route.ts` via Resend. Requires `RESEND_API_KEY` env var.
+- **Contact email** — `src/app/contact/actions.ts` via Resend. Requires `RESEND_API_KEY` env var.
 
 ---
 

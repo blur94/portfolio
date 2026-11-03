@@ -1,7 +1,9 @@
 /**
- * BrowserFrame — contained browser chrome mockup for the hero section.
+ * BrowserFrame: contained browser chrome mockup for the hero section.
  * Shows a minimal browser bar (traffic-light dots + URL) above a screenshot.
  */
+
+import Image from "next/image";
 
 interface BrowserFrameProps {
   /** Image src shown inside the browser body */
@@ -9,10 +11,10 @@ interface BrowserFrameProps {
   /** Alt text / aria-label for the inner image region */
   imageAlt: string;
   /** URL string shown in the fake address bar */
-  url?: string;
+  url: string;
 }
 
-export function BrowserFrame({ src, imageAlt, url = "verivafrica.com/dashboard" }: BrowserFrameProps) {
+export function BrowserFrame({ src, imageAlt, url }: BrowserFrameProps) {
   return (
     <div
       className="w-full overflow-hidden rounded-xl border"
@@ -73,13 +75,18 @@ export function BrowserFrame({ src, imageAlt, url = "verivafrica.com/dashboard" 
         <div className="w-[52px]" aria-hidden="true" />
       </div>
 
-      {/* Browser body — screenshot */}
-      <div
-        className="h-[calc(100%-44px)] w-full bg-cover bg-center bg-no-repeat"
-        role="img"
-        aria-label={imageAlt}
-        style={{ backgroundImage: `url('${src}')` }}
-      />
+      {/* Browser body: screenshot */}
+      <div className="relative h-[calc(100%-44px)] w-full">
+        <Image
+          src={src}
+          alt={imageAlt}
+          fill
+          priority
+          quality={90}
+          sizes="(min-width: 768px) 45vw, calc(100vw - 48px)"
+          className="object-cover object-left-top"
+        />
+      </div>
     </div>
   );
 }

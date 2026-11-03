@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Temporal } from "temporal-polyfill";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
@@ -8,11 +9,24 @@ import { BrowserFrame } from "@/components/BrowserFrame";
 import { Marquee } from "@/components/Marquee";
 import { StaggeredGrid } from "@/components/StaggeredGrid";
 import { CountStat } from "@/components/CountStat";
+import { sharedOpenGraph } from "@/lib/site";
 import { works } from "@/lib/works";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    ...sharedOpenGraph,
+    title: "Gilead Odo, Senior Frontend Engineer",
+    description:
+      "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
+    url: "/",
+  },
+};
 
 export default function Home() {
   const selectedWorks = works.slice(0, 3);
   const yearsBuilding = Temporal.Now.plainDateISO().year - 2020;
+  const liveProjects = works.filter((work) => work.isLive).length;
 
   return (
     <>
@@ -23,7 +37,7 @@ export default function Home() {
           style={{ maxWidth: "var(--container-max, 1440px)" }}
         >
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[55fr_45fr] md:gap-16">
-            {/* Left — editorial copy */}
+            {/* Left: editorial copy */}
             <div>
               <Kicker>Frontend &amp; design engineering</Kicker>
 
@@ -43,15 +57,28 @@ export default function Home() {
               </h1>
 
               <p
-                className="mb-10 text-lg leading-[1.4] tracking-[-0.03em] md:text-[22px]"
+                className="mb-5 text-lg leading-[1.4] tracking-[-0.03em] md:text-[22px]"
                 style={{
                   fontFamily: "var(--font-body)",
                   color: "var(--text-muted)",
-                  maxWidth: "22ch",
+                  maxWidth: "36ch",
                 }}
               >
-                I build operator-grade web platforms for African fintechs,
-                regtechs, and the boring parts of the stack.
+                I build complex web apps for fintech and SaaS teams, including
+                payment dashboards, permissions, and multi-step workflows.
+              </p>
+
+              <p
+                className="mb-10 text-base leading-normal tracking-[-0.02em] md:text-lg"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  color: "var(--text-secondary)",
+                  maxWidth: "52ch",
+                }}
+              >
+                Senior Frontend Engineer working in React, Next.js, and
+                TypeScript. I work on architecture, design systems, and
+                production workflows.
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5">
@@ -76,16 +103,16 @@ export default function Home() {
                     color: "var(--text-primary)",
                   }}
                 >
-                  Or write me a note
+                  Discuss a contract
                 </Button>
               </div>
             </div>
 
-            {/* Right — browser frame */}
+            {/* Right: browser frame */}
             <BrowserFrame
-              src="/projects/verivafrica/cover.png"
-              imageAlt="VerivAfrica dashboard, partner view"
-              url="verivafrica.com / dashboard"
+              src="/projects/prune/hero.png"
+              imageAlt="Prune Payments admin dashboard"
+              url="apas.prunepayments.net"
             />
           </div>
         </div>
@@ -150,9 +177,9 @@ export default function Home() {
             />
             <CountStat
               number={String(works.length)}
-              label="Projects shipped end-to-end"
+              label="Case studies published"
             />
-            <CountStat number="8" label="Repeat clients" />
+            <CountStat number={String(liveProjects)} label="Projects live today" />
           </div>
         </div>
       </section>
@@ -164,7 +191,7 @@ export default function Home() {
           style={{ maxWidth: "var(--container-max, 1440px)" }}
         >
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[60fr_40fr] md:gap-24">
-            {/* Left — copy */}
+            {/* Left: copy */}
             <div>
               <Kicker>About me</Kicker>
 
@@ -189,10 +216,10 @@ export default function Home() {
                   maxWidth: "65ch",
                 }}
               >
-                Most of my work is taking a process someone already does in
-                spreadsheets and turning it into a screen that gets out of their
-                way. Operator surfaces, billing primitives, compliance loops —
-                the layer where the interesting decisions hide.
+                Most of my work is turning a process someone already does in
+                spreadsheets into a screen they can work from. That usually means
+                admin dashboards, payment permissions, and booking and identity
+                workflows.
               </p>
 
               <p
@@ -203,8 +230,8 @@ export default function Home() {
                   maxWidth: "65ch",
                 }}
               >
-                I keep a tight type system, two or three colours, and resist
-                anything decorative that hasn&rsquo;t earned its place.
+                I use a small type system and two or three colours, and I leave
+                out decoration that doesn&apos;t help the user.
               </p>
 
               <Button
@@ -223,7 +250,7 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Right — image placeholder */}
+            {/* Right: image placeholder */}
             <figure className="m-0">
               <div
                 className="aspect-video w-full rounded-2xl bg-cover bg-center md:aspect-4/5"
@@ -232,7 +259,7 @@ export default function Home() {
                   backgroundColor: "var(--bg-surface)",
                 }}
                 role="img"
-                aria-label="A workspace — placeholder portrait"
+                aria-label="Responsible AI Africa homepage"
               />
               <figcaption
                 className="mt-3 text-sm"
@@ -243,7 +270,7 @@ export default function Home() {
                   color: "var(--text-muted)",
                 }}
               >
-                Workspace, Lagos. Most of the work happens here.
+                Responsible AI Africa, one of my recent builds.
               </figcaption>
             </figure>
           </div>

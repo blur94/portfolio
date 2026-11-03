@@ -1,14 +1,8 @@
 /**
- * AvailabilityCard — contact page right-column aside.
- * Shows availability status, current month, and KV rows for timezone/email/calendar.
+ * AvailabilityCard: contact page right-column aside.
+ * Shows the kinds of work I'm open to, and KV rows for timezone/email/calendar.
  */
 export function AvailabilityCard() {
-  const now = new Date();
-  const monthYear = now.toLocaleDateString("en-US", {
-    month: "long",
-    year: "numeric",
-  });
-
   return (
     <aside
       className="flex flex-col gap-6 rounded-[20px] border p-8"
@@ -35,11 +29,11 @@ export function AvailabilityCard() {
             color: "var(--text-secondary)",
           }}
         >
-          Booking project work
+          Contract &amp; role enquiries
         </span>
       </div>
 
-      {/* Available from */}
+      {/* Open to */}
       <div>
         <p
           className="mb-4 leading-none"
@@ -51,9 +45,9 @@ export function AvailabilityCard() {
             color: "var(--text-primary)",
           }}
         >
-          Available from
+          Remote contracts
           <br />
-          {monthYear}
+          and senior roles
         </p>
         <p
           className="text-sm leading-relaxed"
@@ -63,8 +57,8 @@ export function AvailabilityCard() {
             color: "var(--text-muted)",
           }}
         >
-          Lead times measured in weeks, not months. Best fit for 4–12 week
-          engagements.
+          React, Next.js, and TypeScript work. Share the scope and timeline,
+          and I&apos;ll confirm my availability when I reply.
         </p>
       </div>
 
