@@ -432,7 +432,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
     outcomes: [
       { number: "02/2024", label: "Platform launch" },
       { number: "3", label: "Content types: articles, reports, insights" },
-      { number: "10+", label: "Thematic categories at launch" },
+      { number: "10", label: "Thematic areas" },
     ],
     lessons:
       "Building Veriv Africa taught me how much frontend decisions affect trust on a research platform. Typography, spacing, motion, and content hierarchy all change how credible or approachable information feels. Motion works best when it supports clarity. The project made me think more about how people read and interpret information.",
@@ -515,7 +515,7 @@ export const getDashMetrics = async () => {
       "Each answer must follow a strict response schema (diagnosis, yield gap, integrated strategy, economics, risk) that the model can't skip.",
       "The assistant must not fabricate, so the prompt files include grounding, citation, and missing-context rules, with a verification loop before the final answer.",
       "Conversations need edits and regenerations, so messages form a branching tree (parent/child, turn/role ordering).",
-      "Serverless MongoDB cold starts were adding ~15s per request, so I removed a redundant `$connect()` and tuned the connection pool.",
+      "Serverless MongoDB cold starts were adding roughly 15s per request by my estimate, so I removed a redundant `$connect()` and tuned the connection pool.",
       "One chat UI supports multiple model providers (Claude, Gemini, GPT) with per-session config.",
     ],
     process: [
@@ -554,11 +554,11 @@ model Message {
       },
       {
         title: "Performance and release work",
-        body: "I traced a ~15s per-request delay to a redundant Prisma $connect() on every query. I removed it, because Prisma connects lazily on the first query, and added connection-pool config. I also added streaming markdown (code, math, mermaid), SEO and PWA metadata, and dynamic social images.",
+        body: "I traced a delay I estimated at roughly 15s per request to a redundant Prisma $connect() on every query. I removed it, because Prisma connects lazily on the first query, and added connection-pool config. I also added streaming markdown (code, math, mermaid), SEO and PWA metadata, and dynamic social images.",
         artifact: {
           kind: "code",
           language: "typescript",
-          body: `// before: forced a new connection on every request (~15s cold start)
+          body: `// before: forced a new connection on every request (roughly 15s, estimated)
 await prisma.$connect();
 return await action();
 
@@ -570,7 +570,7 @@ return await action();`,
     outcomes: [
       { number: "3", label: "LLM providers switchable (Claude, Gemini, GPT)" },
       { number: "5", label: "Structured sections every answer follows" },
-      { number: "~15s", label: "Per-request DB latency removed" },
+      { number: "~15s", label: "Estimated per-request delay removed" },
     ],
     lessons:
       "Prompts belong in version-controlled files with an enforced output format. That makes a domain-specific assistant easier to maintain than one driven by a string literal.",

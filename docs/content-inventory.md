@@ -44,9 +44,11 @@ Confirmed by the owner on 2026-11-03.
 | Paystat | 12 modules, 15+ countries for bank validation, 1 subdomain per tenant | Structural |
 | Raia | 54 countries | Confirmed by the owner: all 54 African countries are covered |
 | Raia | 7 initiatives, 5 directory categories | Structural |
-| Veriv Africa | Launch 02/2024, 3 content types, 10+ categories | Needs evidence for the launch date and category count |
+| Veriv Africa | Launch 02/2024 | Needs a decision: production deploys ran from 2024-01-25 to 2024-03-17, and the earliest web archive capture is 2024-04-19, so the month is unproven |
+| Veriv Africa | 10 thematic areas | Checked against the live site navbar on 2026-11-03 |
+| Veriv Africa | 3 content types | Structural |
 | Qatapolt | 9 modules, 3 backend services, 4 report categories | Structural |
-| FarmGrow | About 15s of per-request latency removed (also in constraints and process) | Needs evidence: no measurement on file |
+| FarmGrow | About 15s of per-request delay removed (also in constraints and process) | Owner's rough estimate, not a measurement, and labelled as an estimate on the site |
 | FarmGrow | 3 LLM providers, 5 response sections | Structural |
 | Reunitar | 5 roles, 3 search strategies, 4 backend services removed | Structural. The owner confirmed all features are built, and the 5 roles match the repo schema |
 
