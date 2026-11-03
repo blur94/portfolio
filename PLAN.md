@@ -38,3 +38,5 @@ Keep this lean. Remove completed work. Focus on active execution only.
 - SEO metadata polish per page
 - Blog / article section (referenced in typography scale; `/writing` now ships a "Coming Soon" placeholder page and the Writing nav link points to it)
 - Light mode polish (dark-first, light mode is secondary)
+- Release-driven production deploys (`production` branch moved by a GitHub Action on release publish) + staging domain for `main`
+- "Back to latest" link on archived `release/v1` site

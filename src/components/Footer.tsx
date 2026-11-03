@@ -2,6 +2,7 @@ import { Temporal } from "temporal-polyfill";
 import Link from "next/link";
 
 import { Logo } from "@/components/Logo";
+import { VersionSwitcher } from "@/components/VersionSwitcher";
 
 const navLinks = [
   { label: "Work", href: "/works" },
@@ -168,7 +169,10 @@ export function Footer() {
           }}
         >
           <span>Designed with ❤️ &amp; Coffee</span>
-          <span>© {year} Gilead Odo</span>
+          <div className="flex items-center gap-4">
+            <span>© {year} Gilead Odo</span>
+            <VersionSwitcher />
+          </div>
         </div>
       </div>
     </footer>
