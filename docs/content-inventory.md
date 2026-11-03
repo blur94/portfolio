@@ -8,7 +8,7 @@ Maps each public route to the source that edits it, and records the status of ev
 |---|---|---|
 | `/` | `src/app/page.tsx`, `src/components/StaggeredGrid.tsx`, `CountStat.tsx`, `BrowserFrame.tsx`, `Marquee.tsx` | Selected work is the first three entries in `src/lib/works.ts`. The hero image is `public/projects/prune/hero.png`, cropped from the Prune cover |
 | `/works` | `src/app/works/page.tsx`, `src/components/ProjectCard.tsx` | Order follows the `works` array |
-| `/works/[slug]` | `src/app/works/[slug]/page.tsx`, `src/lib/works.ts` | Slugs, in order: `prune`, `recurrent`, `heliumid`, `paystat`, `raia`, `verivafrica`, `qatapolt`, `farmgrow`, `reunitar` |
+| `/works/[slug]` | `src/app/works/[slug]/page.tsx`, `src/lib/works.ts` | Slugs, in order: `prune`, `recurrent`, `heliumid`, `gazettes`, `paystat`, `raia`, `verivafrica`, `qatapolt`, `farmgrow`, `reunitar` |
 | `/about` | `src/app/about/page.tsx` | Bio and the experience timeline are local arrays in this file |
 | `/contact` | `src/app/contact/page.tsx`, `layout.tsx`, `actions.ts`, `src/lib/contact-schema.ts`, `src/components/AvailabilityCard.tsx`, `ContactForm.tsx` | The form sends through Resend and needs `RESEND_API_KEY` |
 | `/writing` | `src/app/writing/page.tsx` | Placeholder in the nav. Out of the sitemap and `noindex` until there is an article |
@@ -24,7 +24,7 @@ Confirmed by the owner on 2026-11-03.
 | Project | Engagement |
 |---|---|
 | Prune Payments | Client engagement via C80 Limited |
-| re:current, Helium ID, Paystat | Built under C80 Limited |
+| re:current, Helium ID, Gazettes, Paystat | Built under C80 Limited |
 | Responsible AI Africa | Independent contract, scoped by feature |
 | Veriv Africa, Qatapolt | Contract work |
 | FarmGrow, Reunitar | Personal project |
@@ -41,6 +41,8 @@ Confirmed by the owner on 2026-11-03.
 | Prune | 3 currencies, 2 surfaces, 4 backend services | Structural |
 | re:current | 3 property modes, 2 surfaces, 2 PDF pipelines | Structural |
 | Helium ID | 7 admin modules, 4 verification methods, 2 surfaces | Structural |
+| Gazettes | 3 apps, 12 bill stages from 7 backend statuses, 7 shared packages | Structural, from the Gazettes repository on 2026-11-03 |
+| Gazettes | Cover image | Illustration of the Bill Passage view with sample data, until real screenshots replace it |
 | Paystat | 12 modules, 15+ countries for bank validation, 1 subdomain per tenant | Structural |
 | Raia | 54 countries | Confirmed by the owner: all 54 African countries are covered |
 | Raia | 7 initiatives, 5 directory categories | Structural |

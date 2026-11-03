@@ -244,6 +244,85 @@ export const config = {
       "For an identity product, revalidating sessions on the server and requiring MFA mattered more than any single screen. A data-dense admin console also depends on its table, query, and URL-state code staying consistent across modules.",
   },
   {
+    slug: "gazettes",
+    updatedAt: "2026-11-03",
+    title: "Gazettes",
+    descriptor:
+      "Legislative information platform for bills, gazettes, and analysis reports.",
+    overview:
+      "Gazettes is a legislative information platform for the National Institute for Legislative and Democratic Studies (NILDS), the National Assembly's institute for legislative research and training. The public app lets anyone track bills through the National Assembly, read official gazettes, and read analysis reports by NILDS researchers. The admin app is where NILDS staff publish gazettes, manage bills and sponsors, and review analysis reports before they go public. I built the frontend for both apps, plus an internal dashboard that brings the team's monitoring tools into one place, in a pnpm and Turborepo monorepo with shared UI, data, and type packages.",
+    role: "Frontend",
+    client: "National Institute for Legislative and Democratic Studies (NILDS)",
+    engagement: "Built under C80 Limited",
+    year: "2026",
+    category: "GovTech",
+    tags: ["Next.js", "TypeScript", "Turborepo", "TanStack Query", "shadcn/ui"],
+    isLive: false,
+    coverImage: "/projects/gazettes/cover.png",
+    context:
+      "Nigeria's legislative record is spread across many places. Bills move through two chambers, gazettes are published as separate documents, and researchers write analysis on both. Citizens, journalists, and civil society groups had no single place to follow a bill and find the gazette and analysis linked to it. Gazettes puts all three in one searchable public app, backed by an admin app where staff publish and review that content.",
+    constraints: [
+      "Two audiences, two vocabularies. Staff say Gazettes and Analysis where the public app says Publications and Reports, for the same records.",
+      "Staff sign in through an external identity provider, while gazette data comes from a separate API that accepts that provider's token.",
+      "The backend has seven flat bill statuses, but readers expect to see a bill move through the House of Representatives, the Senate, and the final stages.",
+      "Analysis reports go through a review workflow. Researchers write and submit them, and directors approve, reject, or request changes.",
+      "Every component and page has to meet WCAG 2.1 AA.",
+    ],
+    process: [
+      {
+        title: "Three apps on shared packages",
+        body: "The project is a pnpm and Turborepo monorepo. The public app, the admin app, and the monitoring dashboard share packages for shadcn/ui components, a typed API client with auth, zod schemas, TanStack Query hooks, and observability. The apps compile the packages from source, so a fix to a shared component lands in every app without a build step.",
+        artifact: {
+          kind: "code",
+          language: "text",
+          body: `apps/
+  user/          public app
+  admin/         staff admin
+  observatory/   monitoring dashboard
+packages/
+  ui/            shared shadcn/ui components
+  core/          typed API client, auth, session
+  types/         shared types, zod schemas
+  query/         TanStack Query hooks
+  observability/ error and log reporting`,
+        },
+      },
+      {
+        title: "A bill's journey through both chambers",
+        body: "The backend tracks seven statuses with no idea of chambers. I built a Bill Passage view that projects them onto twelve stages across the House of Representatives, the Senate, and the final stages, modelled on how PLAC BillsTrack presents a bill. Only stages backed by a real status show a date. The others read \"Completed (date unavailable)\" rather than an invented one. The view is one shared component, and each app feeds it from its own data.",
+        artifact: {
+          kind: "code",
+          language: "typescript",
+          body: `// The seven statuses the API returns, projected onto
+// 12 stages: 5 per chamber plus 2 final stages
+type BillStatus =
+  | "FIRST_READING"
+  | "AWAITING_SECOND_READING"
+  | "AWAITING_COMMITTEE_REPORT"
+  | "LAID_ON_TABLE"
+  | "PASSED"
+  | "WITH_PRESIDENT"
+  | "ASSENTED";`,
+        },
+      },
+      {
+        title: "Role-based review and shared search",
+        body: "In the admin app, researchers write and submit analysis reports, and directors get the approve, reject, and request-changes actions. A permissions hook reads the signed-in staff member's group and flags and decides which actions they see. Both apps share one command-palette search across bills, gazettes, and reports, with each app supplying its own filters and labels.",
+      },
+      {
+        title: "Monitoring in one place",
+        body: "The team used separate tools for errors, logs, product analytics, and uptime. I built a third app, the observatory, that reads from all four and shows them in one dashboard. Engineers sign in with GitHub, and the app checks an allowlist on every request, so removing someone takes effect right away.",
+      },
+    ],
+    outcomes: [
+      { number: "3", label: "Apps: public, admin, monitoring dashboard" },
+      { number: "12", label: "Bill stages shown from 7 backend statuses" },
+      { number: "7", label: "Shared packages across the monorepo" },
+    ],
+    lessons:
+      "Working on a public legislative record taught me to show only what the data supports. Where the backend couldn't back a stage with a real date, the interface says so instead of filling the gap. Shared packages also made naming matter. One record is a Gazette to staff and a Publication to the public, so the shared components had to stay neutral and let each app choose its words.",
+  },
+  {
     slug: "paystat",
     updatedAt: "2026-11-03",
     title: "Paystat",

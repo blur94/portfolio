@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: Gazettes case study
+
+- Added Gazettes, the legislative information platform for NILDS, as a case study after Helium ID. It covers the public and admin apps, the Bill Passage view, report review roles and the monitoring dashboard, from the project's own docs.
+- Added an illustrated cover at `public/projects/gazettes/cover.png` until real screenshots are available. The entry is marked not live until the public URL is confirmed.
+
 ### 2026-11-03: Canonical domain
 
 - Added `lastmod` to every sitemap URL from a hand-set content date (`updatedAt` on each work, `pageUpdatedAt` in `sitemap.ts`), so search engines recrawl the corrected pages sooner.

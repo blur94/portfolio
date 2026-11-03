@@ -44,6 +44,7 @@ Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` 
 
 ## Parking Lot
 
+- Gazettes: replace the illustrated cover with real screenshots, and set `isLive` and `liveUrl` once the public URL is confirmed
 - Content validation script for required case-study fields, duplicate slugs and stale years (TECH-004)
 - First Writing article, then add it to the sitemap and remove `noindex`
 - Valid "Download CV" link once a canonical CV is published
