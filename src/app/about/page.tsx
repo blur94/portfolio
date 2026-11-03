@@ -43,7 +43,7 @@ const articles = [
 
 const experience = [
   {
-    title: "Frontend engineer",
+    title: "Senior frontend engineer",
     company: "C80 Limited",
     relationship: "Primary employment",
     years: "Dec 2022 - Present",
