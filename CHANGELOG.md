@@ -10,6 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### 2026-11-03: C80 and Rework titles
 
 - Updated the C80 row on About to "Senior frontend engineer", as confirmed by the owner.
+- Changed the Prune start on About to July 2024, the date of the first commit in its repository, as the owner directed.
 - Updated the Rework Academy row to "Full-stack software developer trainee", as confirmed by the owner.
 
 ### 2026-11-03: Writing back in the nav
