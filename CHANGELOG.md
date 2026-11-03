@@ -12,6 +12,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `src/app/works/[slug]/page.tsx`: stacked each Process step so its image or code runs the full content width, and stopped cropping images. Added `width` and `height` to image artifacts in `src/lib/works.ts`.
 - Requested screenshots at quality 90 (`images.qualities` in `next.config.js`) and corrected `sizes`, so the browser no longer picks a file sized for a 420px column.
 - The case-study cover now fits a 4:3 frame without cropping.
+- Turned the small case-study section labels (Context, Constraints, Role & Team, Process, Outcome, Lessons) into real `h2` headings, with step titles as `h3`.
 
 ### 2026-11-03: Em-dash and AI-pattern removal
 

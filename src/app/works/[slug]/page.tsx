@@ -162,14 +162,14 @@ export default async function WorkView({ params }: WorkPageProps) {
 
       <section className="mx-auto grid w-full max-w-[1120px] gap-16 px-6 pb-24 md:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.65fr)]">
         <div>
-          <SectionKicker>Context</SectionKicker>
+          <SectionHeading>Context</SectionHeading>
           <p className="mt-5 text-2xl leading-[1.45] tracking-[-0.04em] text-foreground md:text-3xl">
             {work.context}
           </p>
         </div>
 
         <div>
-          <SectionKicker>Constraints</SectionKicker>
+          <SectionHeading>Constraints</SectionHeading>
           <ol className="mt-6 flex flex-col border-t border-border">
             {work.constraints.map((constraint, index) => (
               <li
@@ -187,7 +187,7 @@ export default async function WorkView({ params }: WorkPageProps) {
       </section>
 
       <section className="mx-auto w-full max-w-[1120px] px-6 pb-28 md:px-10">
-        <SectionKicker>Role & Team</SectionKicker>
+        <SectionHeading>Role & Team</SectionHeading>
         <dl className="mt-6 border-t border-border">
           {roleItems.map((item) => (
             <div
@@ -206,7 +206,7 @@ export default async function WorkView({ params }: WorkPageProps) {
       </section>
 
       <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-24 px-6 pb-28 md:px-10 lg:px-20">
-        <SectionKicker>Process</SectionKicker>
+        <SectionHeading>Process</SectionHeading>
         {work.process.map((step, index) => (
           <article
             key={step.title}
@@ -216,9 +216,9 @@ export default async function WorkView({ params }: WorkPageProps) {
               <p className="mb-4 font-mono text-sm text-primary">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h2 className="text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-5xl">
+              <h3 className="text-2xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-[32px]">
                 {step.title}
-              </h2>
+              </h3>
               <p className="mt-6 text-lg leading-[1.7] text-muted-foreground md:text-xl">
                 {step.body}
               </p>
@@ -230,10 +230,7 @@ export default async function WorkView({ params }: WorkPageProps) {
 
       <section className="bg-card py-24">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-12 px-6 text-center md:px-10 lg:px-20">
-          <SectionKicker>Outcome</SectionKicker>
-          <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-6xl">
-            The shape of the work.
-          </h2>
+          <SectionHeading>Outcome</SectionHeading>
           <div className="grid w-full gap-10 md:grid-cols-3">
             {work.outcomes.map((outcome) => (
               <CountStat
@@ -247,7 +244,7 @@ export default async function WorkView({ params }: WorkPageProps) {
       </section>
 
       <section className="mx-auto w-full max-w-[840px] px-6 py-28 md:px-10">
-        <SectionKicker>Lessons</SectionKicker>
+        <SectionHeading>Lessons</SectionHeading>
         <p className="mt-6 text-2xl leading-[1.5] tracking-[-0.04em] text-foreground md:text-4xl">
           {work.lessons}
         </p>
@@ -274,11 +271,11 @@ export default async function WorkView({ params }: WorkPageProps) {
   );
 }
 
-function SectionKicker({ children }: { children: ReactNode }) {
+function SectionHeading({ children }: { children: ReactNode }) {
   return (
-    <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
+    <h2 className="text-4xl font-semibold leading-tight tracking-[-0.06em] text-foreground md:text-5xl">
       {children}
-    </p>
+    </h2>
   );
 }
 
