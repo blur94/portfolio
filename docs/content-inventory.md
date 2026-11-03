@@ -48,7 +48,7 @@ Confirmed by the owner on 2026-11-03.
 | Qatapolt | 9 modules, 3 backend services, 4 report categories | Structural |
 | FarmGrow | About 15s of per-request latency removed (also in constraints and process) | Needs evidence: no measurement on file |
 | FarmGrow | 3 LLM providers, 5 response sections | Structural |
-| Reunitar | 5 roles, 3 search strategies, 4 backend services removed | Structural |
+| Reunitar | 5 roles, 3 search strategies, 4 backend services removed | Structural. The owner confirmed all features are built, and the 5 roles match the repo schema |
 
 ## Removed claims
 
