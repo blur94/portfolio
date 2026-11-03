@@ -148,6 +148,15 @@ Only durable decisions belong here. Always record _why_ — not just what.
 
 ---
 
+### Versioned Portfolio Archives on Subdomains
+
+**Date:** 2026-11-03
+**Decision:** Each past portfolio version is frozen on a long-lived `release/vN` branch (tagged `vN`) and served at `vN.gileadodo.com`; `gileadodo.com` serves the current version. Archives are listed in `src/lib/versions.ts` and surfaced via the navbar `VersionSwitcher` dropdown.
+**Reason:** Visitors can see the site's progression without separate repos, and old versions keep building from their own branch.
+**Implications:** Before a redesign merges, push `release/vN` at the last commit of the outgoing version, attach its subdomain in Vercel as a public deployment (Preview deployments are behind Vercel Authentication), and add an entry to `versions.ts`. Archive branches carry `noindex` + a canonical to `gileadodo.com`. The app build fails without `RESEND_API_KEY`, so every environment that builds an archive needs it.
+
+---
+
 ---
 
 <!-- ═══════════════════════════════════════════════════════════════
