@@ -114,13 +114,13 @@ export const works: Work[] = [
     ],
     process: [
       {
-        title: "Separating operator and guest surfaces",
-        body: "The platform serves two fundamentally different users — landlords managing their portfolio and guests booking short-lets. I separated these into distinct route groups: (landlord) for the authenticated operator dashboard and (public) for guest-facing property listings and booking pages. The split gave each surface its own layout, auth logic, and data loading strategy without the two leaking into each other.",
+        title: "Separating landlord and guest surfaces",
+        body: "The platform serves two fundamentally different users — landlords managing their portfolio and guests booking short-lets. I separated these into distinct route groups: (landlord) for the authenticated landlord dashboard and (public) for guest-facing property listings and booking pages. The split gave each surface its own layout, auth logic, and data loading strategy without the two leaking into each other.",
         artifact: { kind: "image", src: "/projects/recurrent/banking.png" },
       },
       {
         title: "A booking calendar that understands availability",
-        body: "Short-let and hotel bookings require per-unit availability tracking across multiple days, with OTA channel sync to prevent double-bookings. I built the calendar view on Schedule-X, wiring it to the booking state layer. Each day cell reflects which units are available, occupied, or pending — without the operator needing to cross-reference a separate list.",
+        body: "Short-let and hotel bookings require per-unit availability tracking across multiple days, with OTA channel sync to prevent double-bookings. I built the calendar view on Schedule-X, wiring it to the booking state layer. Each day cell reflects which units are available, occupied, or pending — without the landlord needing to cross-reference a separate list.",
         artifact: { kind: "image", src: "/projects/recurrent/shortlets.png" },
       },
       {
@@ -131,7 +131,7 @@ export const works: Work[] = [
     ],
     outcomes: [
       { number: "3", label: "Property modes: rentals, short-lets, sales" },
-      { number: "2", label: "Separate surfaces: operator and guest" },
+      { number: "2", label: "Separate surfaces: landlord and guest" },
       { number: "2", label: "PDF pipelines: agreements and invoices" },
     ],
     lessons:
