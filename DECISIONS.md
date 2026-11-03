@@ -195,6 +195,15 @@ Only durable decisions belong here. Always record _why_ — not just what.
 
 ---
 
+### Sitemap lastmod Is a Hand-Set Content Date
+
+**Date:** 2026-11-03
+**Decision:** Each sitemap URL carries `lastmod` from a date set by hand: `updatedAt` on each work in `src/lib/works.ts`, and `pageUpdatedAt` in `src/app/sitemap.ts` for static pages. Build time and git dates are not used.
+**Reason:** Search engines only trust `lastmod` when it changes with real content. A build-time date changes on every deploy and teaches them to ignore it.
+**Implications:** Bump a page's date when its content changes, and leave it alone for code or styling changes. New works must set `updatedAt`.
+
+---
+
 ### One Site URL
 
 **Date:** 2026-11-03

@@ -16,6 +16,11 @@ export type WorkOutcome = {
 
 export type Work = {
   slug: string;
+  /**
+   * Date of the last meaningful content change (YYYY-MM-DD), used as the
+   * sitemap's lastmod. Bump it when the case study's content changes.
+   */
+  updatedAt: string;
   title: string;
   descriptor: string;
   overview: string;
@@ -43,6 +48,7 @@ export type Work = {
 export const works: Work[] = [
   {
     slug: "prune",
+    updatedAt: "2026-11-03",
     title: "Prune Payments",
     descriptor:
       "Cross-border payments platform for consumers and businesses.",
@@ -96,6 +102,7 @@ export const works: Work[] = [
   },
   {
     slug: "recurrent",
+    updatedAt: "2026-11-03",
     title: "re:current",
     descriptor:
       "Property management platform for Nigerian landlords and letting agents.",
@@ -160,6 +167,7 @@ export const works: Work[] = [
   },
   {
     slug: "heliumid",
+    updatedAt: "2026-11-03",
     title: "Helium ID",
     descriptor:
       "Enterprise identity verification and digital-identity platform.",
@@ -237,6 +245,7 @@ export const config = {
   },
   {
     slug: "paystat",
+    updatedAt: "2026-11-03",
     title: "Paystat",
     descriptor: "Multi-tenant payroll and HR platform.",
     overview:
@@ -314,6 +323,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
   },
   {
     slug: "raia",
+    updatedAt: "2026-11-03",
     title: "Raia",
     descriptor: "Ecosystem hub for responsible AI across Africa.",
     overview:
@@ -377,6 +387,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
   },
   {
     slug: "verivafrica",
+    updatedAt: "2026-11-03",
     title: "Veriv Africa",
     descriptor:
       "Data intelligence platform for Nigerian businesses and policymakers.",
@@ -439,6 +450,7 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
   },
   {
     slug: "qatapolt",
+    updatedAt: "2026-11-03",
     title: "Qatapolt Admin",
     descriptor: "Admin dashboard for a sports social network.",
     overview:
@@ -497,6 +509,7 @@ export const getDashMetrics = async () => {
   },
   {
     slug: "farmgrow",
+    updatedAt: "2026-11-03",
     title: "FarmGrow",
     descriptor: "AI farming assistant in one chat workspace.",
     overview:
@@ -577,6 +590,7 @@ return await action();`,
   },
   {
     slug: "reunitar",
+    updatedAt: "2026-11-03",
     title: "Reunitar",
     descriptor:
       "Offline-first lost-and-found operations for large conventions.",
