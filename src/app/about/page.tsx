@@ -76,9 +76,9 @@ const experience = [
     ],
   },
   {
-    title: "Full-stack engineer",
+    title: "Full-stack software developer trainee",
     company: "Rework Academy",
-    relationship: "Employment",
+    relationship: "Traineeship",
     years: "Jan 2022 - Dec 2022",
     bullets: [
       "Contributed to frontend architecture and user interactions, with an emphasis on responsiveness, accessibility, and cross-browser compatibility.",

@@ -36,7 +36,7 @@ Keep this lean. Remove completed work. Focus on active execution only.
 
 Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` (local only). LinkedIn and CV changes are out of scope for this repo, and drafts live in a private review doc. Owner questions also live in that doc rather than a `questions-for-owner.md`, because this repo is public.
 
-- Confirm remaining dates, the Rework title and metrics, then update the About timeline and `docs/content-inventory.md`.
+- Confirm remaining dates and metrics, then update the About timeline and `docs/content-inventory.md`.
 - Reunitar: label features as implemented, prototype or planned (CASE-003).
 - Prune and re:current: add evidence-led outcomes once measurements and sharing permission exist (CASE-001, CASE-002).
 - Add new screenshots for the Process steps on Prune, Qatapolt, Veriv Africa and Reunitar. Those steps currently have no image, to avoid repeating one.
