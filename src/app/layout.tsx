@@ -73,11 +73,9 @@ export const metadata: Metadata = {
       "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
     ...sharedOpenGraph,
   },
+  // Title, description and image fall back to each page's openGraph values.
   twitter: {
     card: "summary_large_image",
-    title: "Gilead Odo, Senior Frontend Engineer",
-    description:
-      "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
     creator: "@balmofcodes",
   },
 };

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 /** Canonical origin. The apex domain redirects here. */
 export const siteUrl = "https://www.gileadodo.com";
 
@@ -14,4 +16,4 @@ export const sharedOpenGraph = {
       alt: "Gilead Odo, Senior Frontend Engineer",
     },
   ],
-};
+} satisfies Metadata["openGraph"];

@@ -12,6 +12,7 @@ import {
   Hr,
   Tailwind,
 } from "@react-email/components";
+import { siteUrl } from "@/lib/site";
 
 interface ContactFormNotificationProps {
   name: string;
@@ -99,7 +100,7 @@ const ContactFormNotification = ({
               </Text>
               <Text className="text-[12px] leading-6 m-0">
                 <Link
-                  href="https://gileadodo.com/"
+                  href={siteUrl}
                   className="text-brand-muted no-underline mr-3"
                 >
                   Website

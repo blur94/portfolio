@@ -10,7 +10,7 @@ Keep this lean. Remove completed work. Focus on active execution only.
 - Framework: Next.js App Router with TypeScript
 - Styling: Tailwind CSS + shadcn/ui
 - Animation: GSAP + Motion (Framer)
-- Email: Resend via API route at `/api/send-email`
+- Email: Resend via the `sendContactEmail` server action
 - Theme: Dark-first, Zinc base + Lime primary (shadcn preset `b8QyST2lZC`)
 - Design tokens: See `DESIGN.md`
 - Fonts: Instrument Serif (`--font-display`, hero/display only) · Visby CF (`--font-heading`, UI headings) · Inter (`--font-body`, body copy)
