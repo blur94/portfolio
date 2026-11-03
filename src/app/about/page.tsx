@@ -43,6 +43,7 @@ const experience = [
       "Build and maintain frontend codebases in React, Next.js, and TypeScript, working with UI/UX designers and contributing to architecture decisions.",
       "Lead code reviews and mentor junior developers.",
       "Prune Payments, a client engagement through C80 from March 2024: the business dashboard and the internal admin console.",
+      "Paystat, a multi-tenant payroll and HR platform I built under C80.",
       "DAM NG, a C80 project that has since been sunsetted.",
     ],
   },

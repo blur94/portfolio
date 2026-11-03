@@ -251,6 +251,7 @@ export const config = {
       "Paystat is a multi-tenant payroll and HR platform. Companies process payroll, manage employees and attendance, and run reports, each on its own branded subdomain. I built the frontend on Next.js with Mantine, AG Grid, and TanStack Query. It has 12 modules, including payroll, people, attendance, accounts, insights, integrations, workflows, and an AI assistant. I also built account number and IBAN validation for 15+ countries, and an AI-generated organogram on an editable React Flow canvas.",
     role: "Frontend",
     client: "Paystat",
+    engagement: "Built under C80 Limited",
     year: "2024",
     category: "HR Tech",
     tags: ["Next.js", "TypeScript", "Mantine", "AG Grid", "React Flow"],
