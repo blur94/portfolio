@@ -58,6 +58,16 @@ const experience = [
     ],
   },
   {
+    title: "Frontend contractor",
+    company: "Veriv Africa, Qatapolt",
+    relationship: "Contract work",
+    years: "2024",
+    bullets: [
+      "Veriv Africa: built the frontend for the editorial article and insights system, with long-form content from two CMSes.",
+      "Qatapolt: built the admin dashboard for platform metrics, moderation, news, and trophies.",
+    ],
+  },
+  {
     title: "Full-stack engineer",
     company: "Rework Academy",
     relationship: "Employment",
