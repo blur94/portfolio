@@ -102,9 +102,9 @@ export default function Home() {
 
             {/* Right: browser frame */}
             <BrowserFrame
-              src="/projects/verivafrica/cover.png"
-              imageAlt="Veriv Africa homepage"
-              url="verivafrica.com"
+              src="/projects/prune/cover.png"
+              imageAlt="Prune Payments admin dashboard"
+              url="apas.prunepayments.net"
             />
           </div>
         </div>
