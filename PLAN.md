@@ -1,5 +1,5 @@
 # PLAN.md
-Active working memory for the pre-portfolio project.
+Active working memory for the portfolio project.
 
 Keep this lean. Remove completed work. Focus on active execution only.
 

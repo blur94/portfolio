@@ -1,11 +1,15 @@
 # CHANGELOG.md
-All notable changes to pre-portfolio are documented here.
+All notable changes to portfolio are documented here.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
 ## Unreleased
+
+### 2026-11-03 — Rename project to "portfolio"
+
+- Renamed the project from `pre-portfolio` to `portfolio` in `package.json` and the repo memory file headers, ahead of the GitHub repo rename.
 
 ### 2026-11-03 — Previous-versions dropdown (navbar)
 

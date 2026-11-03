@@ -1,6 +1,6 @@
 # DECISIONS.md
 
-Long-term architectural and product decisions for pre-portfolio.
+Long-term architectural and product decisions for portfolio.
 
 Only durable decisions belong here. Always record _why_ — not just what.
 

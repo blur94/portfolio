@@ -1,4 +1,4 @@
-# pre-portfolio
+# portfolio
 
 A personal "coming soon" / pre-launch portfolio page for Gilead Odo, displayed while the full portfolio is under development.
 

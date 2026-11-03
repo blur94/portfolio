@@ -1,5 +1,5 @@
 # STYLE.md
-Practical style guide for the pre-portfolio project.
+Practical style guide for the portfolio project.
 
 This file summarizes the visual and implementation patterns that are already present in the repo. `DESIGN.md` remains the source of truth for exact Figma tokens; use this file as the shorter day-to-day reference.
 
