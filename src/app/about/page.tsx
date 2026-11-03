@@ -13,22 +13,22 @@ const articles = [
   {
     title: "What I work on",
     body: [
-      "Most of my work is taking a process someone already does in spreadsheets, on paper, or across three browser tabs and turning it into a single screen that gets out of their way.",
-      "The projects I&rsquo;m proudest of share a pattern: a clear operator, a real workflow, and constraints that make the interesting decisions obvious. Prune&rsquo;s money-movement permissions, re:current&rsquo;s bookings and tenancy documents, and Helium ID&rsquo;s identity operations all work that way.",
+      "Most of my work is taking a process someone already does in spreadsheets, on paper, or across three browser tabs and turning it into a single screen they can work from.",
+      "The projects I'm proudest of share a pattern: a clear operator, a real workflow, and constraints that make the interesting decisions obvious. Prune's money-movement permissions, re:current's bookings and tenancy documents, and Helium ID's identity operations all work that way.",
     ],
   },
   {
     title: "How I work",
     body: [
-      "I lean on React and Next.js because that&rsquo;s where the ecosystem is, but I&rsquo;ve shipped production code in Mantine, Tailwind, shadcn, Recharts, Prisma, and whatever fits the brief.",
-      "On the design side, I&rsquo;m a builder, not a stylist. A tight type system, two or three colours, no decoration that hasn&rsquo;t earned its place. Most project decisions begin and end with that constraint.",
+      "I mainly use React and Next.js, and I've shipped production code with Mantine, Tailwind, shadcn, Recharts, and Prisma.",
+      "On design, I use a small type system and two or three colours, and I leave out decoration that doesn't help the user.",
     ],
   },
   {
     title: "How I think about the work",
     body: [
-      "Operator-grade software is durable software. It has to survive a feature freeze, a marketing pivot, three staff turnovers, and the audit that happens two years later. I write for that horizon.",
-      "My primary employment is with C80 Limited, and I also take independent contracts scoped to specific features. I work best as a hands-on IC inside an existing team, never as the loudest voice in the room.",
+      "Operator-grade software has to keep working through feature freezes, pivots, and staff changes, and I write it with that in mind.",
+      "My primary employment is with C80 Limited, and I also take independent contracts scoped to specific features. I work best as a hands-on IC inside an existing team.",
     ],
   },
 ];
@@ -93,7 +93,7 @@ export default function About() {
           className="mx-auto max-w-[44ch] text-center text-[22px] leading-[1.4] tracking-[-0.02em]"
           style={{ color: "var(--text-secondary)" }}
         >
-          I build operator surfaces, complex workflows, and the dull, durable parts of African internet products, mostly with React, Next.js, and TypeScript.
+          I build operator dashboards, complex workflows, and the unglamorous, long-lived parts of African internet products, mostly with React, Next.js, and TypeScript.
         </p>
       </section>
 

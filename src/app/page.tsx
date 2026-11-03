@@ -29,7 +29,7 @@ export default function Home() {
           style={{ maxWidth: "var(--container-max, 1440px)" }}
         >
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[55fr_45fr] md:gap-16">
-            {/* Left — editorial copy */}
+            {/* Left: editorial copy */}
             <div>
               <Kicker>Frontend &amp; design engineering</Kicker>
 
@@ -69,9 +69,8 @@ export default function Home() {
                 }}
               >
                 Senior Frontend Engineer building complex SaaS and fintech
-                applications with React, Next.js, and TypeScript, from
-                architecture and design systems to reliable production
-                workflows.
+                applications with React, Next.js, and TypeScript. I work on
+                architecture, design systems, and production workflows.
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5">
@@ -101,7 +100,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right — browser frame */}
+            {/* Right: browser frame */}
             <BrowserFrame
               src="/projects/verivafrica/cover.png"
               imageAlt="Veriv Africa homepage"
@@ -184,7 +183,7 @@ export default function Home() {
           style={{ maxWidth: "var(--container-max, 1440px)" }}
         >
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[60fr_40fr] md:gap-24">
-            {/* Left — copy */}
+            {/* Left: copy */}
             <div>
               <Kicker>About me</Kicker>
 
@@ -209,10 +208,10 @@ export default function Home() {
                   maxWidth: "65ch",
                 }}
               >
-                Most of my work is taking a process someone already does in
-                spreadsheets and turning it into a screen that gets out of their
-                way. Operator dashboards, payment permissions, booking and identity
-                workflows — the layer where the interesting decisions hide.
+                Most of my work is turning a process someone already does in
+                spreadsheets into a screen they can work from. That usually means
+                operator dashboards, payment permissions, and booking and identity
+                workflows.
               </p>
 
               <p
@@ -223,8 +222,8 @@ export default function Home() {
                   maxWidth: "65ch",
                 }}
               >
-                I keep a tight type system, two or three colours, and resist
-                anything decorative that hasn&rsquo;t earned its place.
+                I use a small type system and two or three colours, and I leave
+                out decoration that doesn&apos;t help the user.
               </p>
 
               <Button
@@ -243,7 +242,7 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Right — image placeholder */}
+            {/* Right: image placeholder */}
             <figure className="m-0">
               <div
                 className="aspect-video w-full rounded-2xl bg-cover bg-center md:aspect-4/5"

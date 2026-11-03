@@ -47,7 +47,7 @@ export default function ContactPage() {
               style={{ color: "var(--text-muted)" }}
             >
               Hiring for a senior frontend role, or need help on a React or
-              Next.js build? Tell me what you&rsquo;re working on and I&rsquo;ll
+              Next.js build? Tell me what you&apos;re working on and I&apos;ll
               write back by email.
             </p>
             <a

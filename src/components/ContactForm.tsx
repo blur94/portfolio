@@ -65,7 +65,7 @@ export function ContactForm() {
           className="text-[22px] leading-[1.4] tracking-[-0.03em]"
           style={{ color: "var(--text-secondary)" }}
         >
-          Thanks for reaching out. I&rsquo;ll reply by email.
+          I&apos;ll reply by email.
         </p>
         <button
           type="button"

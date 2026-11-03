@@ -1,5 +1,5 @@
 /**
- * BrowserFrame — contained browser chrome mockup for the hero section.
+ * BrowserFrame: contained browser chrome mockup for the hero section.
  * Shows a minimal browser bar (traffic-light dots + URL) above a screenshot.
  */
 
@@ -73,7 +73,7 @@ export function BrowserFrame({ src, imageAlt, url = "verivafrica.com/dashboard" 
         <div className="w-[52px]" aria-hidden="true" />
       </div>
 
-      {/* Browser body — screenshot */}
+      {/* Browser body: screenshot */}
       <div
         className="h-[calc(100%-44px)] w-full bg-cover bg-center bg-no-repeat"
         role="img"

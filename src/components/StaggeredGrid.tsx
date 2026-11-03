@@ -6,7 +6,7 @@ interface StaggeredGridProps {
 }
 
 /**
- * StaggeredGrid — 3-column grid where even-indexed cards (1, 3, 5…) are
+ * StaggeredGrid: 3-column grid where even-indexed cards (1, 3, 5…) are
  * offset downward by 56px, creating a Notio-style staggered rhythm.
  */
 export function StaggeredGrid({ works }: StaggeredGridProps) {

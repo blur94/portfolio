@@ -62,12 +62,12 @@ export function Nav() {
           maxWidth: "var(--container-max, 1440px)",
         }}
       >
-        {/* Left — wordmark */}
+        {/* Left: wordmark */}
         <div className="flex flex-1 items-center">
           <Logo asLink iconClassName="h-10 w-10" />
         </div>
 
-        {/* Center — nav links */}
+        {/* Center: nav links */}
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {navLinks.map((link) => {
             const active = isActive(link.href);
@@ -104,7 +104,7 @@ export function Nav() {
           })}
         </nav>
 
-        {/* Right — theme toggle + CTA */}
+        {/* Right: theme toggle + CTA */}
         <div className="flex flex-1 items-center justify-end gap-3">
           <VersionSwitcher />
 

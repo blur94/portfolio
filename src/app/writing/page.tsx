@@ -54,9 +54,9 @@ export default function WritingPage() {
         className="mb-10 max-w-[52ch] text-[22px] leading-[1.4] tracking-[-0.03em]"
         style={{ color: "var(--text-muted)" }}
       >
-        I&rsquo;m building a place to share engineering notes on frontend
-        architecture and building with React and Next.js. It&rsquo;s still in
-        the works, so check back soon or explore my projects in the meantime.
+        I&apos;m building a place to share engineering notes on frontend
+        architecture, React, and Next.js. It isn&apos;t ready yet, so explore my
+        projects in the meantime.
       </p>
 
       <Link

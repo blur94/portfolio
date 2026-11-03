@@ -7,7 +7,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-### 2026-11-03 — Credibility and conversion pass
+### 2026-11-03: Em-dash and AI-pattern removal
+
+- Removed every em-dash and en-dash from `src/`, and rewrote case-study, home, About, contact and Writing copy to the unslop rules without adding facts.
+- Replaced mannered case-study step titles in `src/lib/works.ts` with literal ones.
+- Kept curly apostrophes only in the large serif headlines, where a straight one looks wrong at that size.
+
+### 2026-11-03: Credibility and conversion pass
 
 - `src/app/about/page.tsx`: replaced the template timeline with C80 Limited as primary employment, Prune and DAM NG as work through C80, Responsible AI Africa as a separate per-feature contract, and Rework Academy. Removed claims nothing supports.
 - `src/lib/works.ts`: added an optional `engagement` field, set it for Prune and Raia, removed unsupported business metrics, and reordered entries to lead with Prune, re:current and Helium ID.

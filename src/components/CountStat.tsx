@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 
 interface CountStatProps {
-  /** Display number — can include prefix/suffix like "6+", "—40%", "₦2.4M", "<60ms" */
+  /** Display number, can include prefix/suffix like "6+", "-40%", "₦2.4M", "<60ms" */
   number: string;
   label: string;
 }
 
 /**
- * CountStat — animates a numeric value from 0 to its target when it enters the viewport.
- * Handles prefix/suffix strings (e.g. "6+", "—40%", "₦2.4M", "<60ms").
+ * CountStat animates a numeric value from 0 to its target when it enters the viewport.
+ * Handles prefix/suffix strings (e.g. "6+", "-40%", "₦2.4M", "<60ms").
  * The server renders the final value, so crawlers and no-JS visitors never see 0;
  * the client resets it to 0 only when it is going to animate.
  * Date-like values ("02/2024") and prefers-reduced-motion show the final value as is.

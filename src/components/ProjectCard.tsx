@@ -8,7 +8,7 @@ interface ProjectCardProps {
 }
 
 /**
- * ProjectCard — card with 16:9 media thumbnail, title, descriptor, role + stack, category + status chips.
+ * ProjectCard: card with 16:9 media thumbnail, title, descriptor, role + stack, category + status chips.
  * Tailwind translation of .card from the Plinth handoff CSS.
  */
 export function ProjectCard({ work }: ProjectCardProps) {
@@ -95,7 +95,7 @@ export function ProjectCard({ work }: ProjectCardProps) {
 
         {/* Meta chips */}
         <div className="flex flex-wrap items-center gap-2">
-          {/* Category chip — outline */}
+          {/* Category chip: outline */}
           <span
             className="inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium uppercase tracking-[-0.06em]"
             style={{
@@ -107,7 +107,7 @@ export function ProjectCard({ work }: ProjectCardProps) {
             {work.category}
           </span>
 
-          {/* Live chip — accent */}
+          {/* Live chip: accent */}
           {work.isLive && (
             <span
               className="inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[-0.06em]"
@@ -121,7 +121,7 @@ export function ProjectCard({ work }: ProjectCardProps) {
             </span>
           )}
 
-          {/* Private chip — outline */}
+          {/* Private chip: outline */}
           {!work.isLive && (
             <span
               className="inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium uppercase tracking-[-0.06em]"

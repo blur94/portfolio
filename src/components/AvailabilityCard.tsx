@@ -1,5 +1,5 @@
 /**
- * AvailabilityCard — contact page right-column aside.
+ * AvailabilityCard: contact page right-column aside.
  * Shows the kinds of work I'm open to, and KV rows for timezone/email/calendar.
  */
 export function AvailabilityCard() {
@@ -58,7 +58,7 @@ export function AvailabilityCard() {
           }}
         >
           React, Next.js, and TypeScript work. Share the scope and timeline,
-          and I&rsquo;ll confirm my availability when I reply.
+          and I&apos;ll confirm my availability when I reply.
         </p>
       </div>
 

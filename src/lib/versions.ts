@@ -24,7 +24,7 @@ export const versions: PortfolioVersion[] = [
   {
     label: "v2",
     name: "Plinth redesign",
-    period: "2026 – present",
+    period: "2026 to present",
     href: "https://gileadodo.com",
     current: true,
   },

@@ -58,7 +58,7 @@ export function Logo({ className, iconClassName, asLink = false }: LogoProps) {
     return (
       <Link
         href="/"
-        aria-label="Gilead Odo — home"
+        aria-label="Gilead Odo, home"
         className="flex min-h-11 items-center"
       >
         <LogoContent className={className} iconClassName={iconClassName} />
