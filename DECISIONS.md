@@ -186,6 +186,24 @@ Only durable decisions belong here. Always record _why_ — not just what.
 
 ---
 
+### Shiki for Case-Study Code
+
+**Date:** 2026-11-03
+**Decision:** Case-study code uses the shadcn `code-block` component, with Shiki highlighting on the server through `highlightCode` in `src/lib/highlighter.tsx`. It uses Shiki's JavaScript regex engine.
+**Reason:** The owner asked for the shadcn component. Server highlighting keeps Shiki out of the client bundle, and the code is static.
+**Implications:** Add a language to the `languages` map before using it. If highlighting fails, the block renders plain lines instead of failing the page. `useHighlightedCode` was not installed because nothing highlights on the client.
+
+---
+
+### One Site URL
+
+**Date:** 2026-11-03
+**Decision:** `siteUrl` and `sharedOpenGraph` in `src/lib/site.ts` are the single source for the canonical origin and shared social metadata. Each page sets its own `openGraph` title, description and URL.
+**Reason:** Pages that inherited the root `openGraph` shared as the homepage.
+**Implications:** Next.js replaces a parent's `openGraph` object, so a new page must spread `sharedOpenGraph` and set its own values.
+
+---
+
 <!-- ═══════════════════════════════════════════════════════════════
      MULTI-AGENT ORG UPGRADE
      Frozen routing rules for the multi-agent org. HR must apply them

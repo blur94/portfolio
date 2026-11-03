@@ -2,11 +2,21 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { PenLine, ArrowUpRight } from "lucide-react";
 
+import { sharedOpenGraph } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Writing",
   description:
     "Engineering notes from Gilead Odo on frontend architecture and building with React and Next.js. Coming soon.",
   robots: { index: false, follow: true },
+  alternates: { canonical: "/writing" },
+  openGraph: {
+    ...sharedOpenGraph,
+    title: "Writing | Gilead Odo",
+    description:
+      "Engineering notes from Gilead Odo on frontend architecture and building with React and Next.js. Coming soon.",
+    url: "/writing",
+  },
 };
 
 export default function WritingPage() {

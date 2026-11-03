@@ -5,7 +5,8 @@ export type WorkArtifact =
 export type WorkProcessStep = {
   title: string;
   body: string;
-  artifact: WorkArtifact;
+  /** Left out rather than repeating an image already shown on the page. */
+  artifact?: WorkArtifact;
 };
 
 export type WorkOutcome = {
@@ -79,22 +80,10 @@ export const works: Work[] = [
       {
         title: "Role-based permissions",
         body: "I built RBAC around an initiator/approver pattern. A useHasPermission hook gates sensitive actions such as transaction initiation and approvals, so the UI changes with each team member's role instead of relying on a single admin flag.",
-        artifact: {
-          kind: "image",
-          src: "/projects/prune/cover.png",
-          width: 1920,
-          height: 1440,
-        },
       },
       {
         title: "Multi-currency accounts and money movement",
         body: "Each account has its own IBAN, Sort Code, or ACH Routing details across EUR, GBP, and USD, with per-currency transaction views, payouts, and downloadable statements. The client generates receipts and statements as PDF and exports them to Excel, matching what's on screen.",
-        artifact: {
-          kind: "image",
-          src: "/projects/prune/customer.png",
-          width: 1920,
-          height: 1440,
-        },
       },
     ],
     outcomes: [
@@ -413,22 +402,10 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
       {
         title: "Content architecture before components",
         body: "The publishing flow had to scale across reports, insights, and category pages. Before I built any components, I mapped the content types from Contentful and Sanity and set the column widths, typographic rhythm, and spacing scale each one needed.",
-        artifact: {
-          kind: "image",
-          src: "/projects/verivafrica/cover.png",
-          width: 1920,
-          height: 1440,
-        },
       },
       {
         title: "Adapting Mantine for long-form reading",
         body: "Mantine defaults toward data-dense UIs. A long-form editorial platform needs tighter leading, a wider measure, and quieter chrome. I reworked the type and spacing system for long reading and kept the component library consistent underneath.",
-        artifact: {
-          kind: "image",
-          src: "/projects/verivafrica/cover.png",
-          width: 1920,
-          height: 1440,
-        },
       },
       {
         title: "Restrained motion",
@@ -488,22 +465,10 @@ validateAccountNumber("12345678", "GB");                // 8-digit + sort code
       {
         title: "A metrics-first dashboard",
         body: "The landing page shows downloads, posts, and users first, then breaks the user base down by age, gender, and country. Server Actions fetch metrics and visitors using the session token from cookies. Mantine donut charts and a paginated visitor table tagged by sport display the data.",
-        artifact: {
-          kind: "image",
-          src: "/projects/qatapolt/cover.png",
-          width: 1920,
-          height: 1536,
-        },
       },
       {
         title: "A moderation queue",
         body: "Each report shows the category (harassment, spam, fraud, impersonation), reason, reporter, and status. I focused on removing extra clicks between seeing a problem and resolving it, so block and delete actions sit inline.",
-        artifact: {
-          kind: "image",
-          src: "/projects/qatapolt/cover.png",
-          width: 1920,
-          height: 1536,
-        },
       },
       {
         title: "Forwarding auth through every Server Action",
@@ -644,32 +609,14 @@ return await action();`,
       {
         title: "Local-first intake",
         body: "I built the ops UI on RxDB (IndexedDB) with custom pull/push sync endpoints. Staff can read and write item intake and person-cases offline, and changes replicate when the connection returns. Forms try the server first, then fall back to creating the record locally on network failure.",
-        artifact: {
-          kind: "image",
-          src: "/projects/reunitar/cover.png",
-          width: 1920,
-          height: 1440,
-        },
       },
       {
         title: "Conflict resolution and offline auth",
         body: "I added conflict resolution, where the server version wins automatically and a merge UI handles real divergence. A signed session-cache JWT keeps authentication working through a 24-hour database outage, so staff can keep working at a live event.",
-        artifact: {
-          kind: "image",
-          src: "/projects/reunitar/cover.png",
-          width: 1920,
-          height: 1440,
-        },
       },
       {
         title: "Semantic matching and a smaller backend",
         body: "Lost items rarely match found items by exact words (\"black hoodie\" vs \"dark sweatshirt\"), so I added vector and hybrid search with a keyword fallback. I then moved the embedding pipeline from PostgreSQL, pgvector, Redis, BullMQ, and OpenAI to MongoDB Atlas Automated Embeddings (Voyage AI). Atlas embeds on write, which removed four parts from the backend.",
-        artifact: {
-          kind: "image",
-          src: "/projects/reunitar/cover.png",
-          width: 1920,
-          height: 1440,
-        },
       },
     ],
     outcomes: [

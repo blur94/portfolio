@@ -16,6 +16,7 @@ const languages = {
   json: () => import("shiki/langs/json.mjs"),
   jsx: () => import("shiki/langs/jsx.mjs"),
   markdown: () => import("shiki/langs/markdown.mjs"),
+  prisma: () => import("shiki/langs/prisma.mjs"),
   python: () => import("shiki/langs/python.mjs"),
   sql: () => import("shiki/langs/sql.mjs"),
   tsx: () => import("shiki/langs/tsx.mjs"),
@@ -45,6 +46,10 @@ function getHighlighter() {
     ],
     langs: [],
     engine: createJavaScriptRegexEngine({ forgiving: true }),
+  }).catch((error) => {
+    // Don't keep a rejected promise, so the next call can retry.
+    highlighter = undefined
+    throw error
   })
 
   return highlighter
@@ -116,9 +121,15 @@ export async function loadHighlighter(language: string) {
   }
 }
 
-// Returns one React node per line, or null for a language that is not listed.
+// Returns one React node per line, or null for a language that is not listed
+// or a highlighter that fails to load.
 export async function highlightCode(code: string, language: string) {
-  const highlighter = await loadHighlighter(language)
+  try {
+    const highlighter = await loadHighlighter(language)
 
-  return highlighter ? highlighter.highlight(code).lines : null
+    return highlighter ? highlighter.highlight(code).lines : null
+  } catch {
+    // Callers fall back to plain lines rather than failing the page.
+    return null
+  }
 }

@@ -34,12 +34,12 @@ Keep this lean. Remove completed work. Focus on active execution only.
 
 ## Career Improvements Follow-up
 
-Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` (local only).
+Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` (local only). LinkedIn and CV changes are out of scope for this repo, and drafts live in a private review doc. Owner questions also live in that doc rather than a `questions-for-owner.md`, because this repo is public.
 
 - Confirm titles, dates and metrics, then update the About timeline and `docs/content-inventory.md`.
-- Add `engagement` to the remaining works once each relationship is confirmed.
 - Reunitar: label features as implemented, prototype or planned (CASE-003).
 - Prune and re:current: add evidence-led outcomes once measurements and sharing permission exist (CASE-001, CASE-002).
+- Add new screenshots for the Process steps on Prune, Qatapolt, Veriv Africa and Reunitar. Those steps currently have no image, to avoid repeating one.
 
 ---
 
@@ -49,6 +49,7 @@ Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` 
 - First Writing article, then restore the nav link
 - Valid "Download CV" link once a canonical CV is published
 - Remove the template `/api/hello` route and the unused `/api/send-email` route
+- Spam protection on the contact form
 - PWA manifest and icons (already added per git history)
 - Blog / article section (referenced in typography scale; `/writing` ships a "Coming Soon" placeholder that is out of the nav)
 - Light mode polish (dark-first, light mode is secondary)

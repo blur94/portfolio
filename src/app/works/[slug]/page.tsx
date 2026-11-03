@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/code-block";
 import { CountStat } from "@/components/CountStat";
 import { highlightCode } from "@/lib/highlighter";
+import { sharedOpenGraph } from "@/lib/site";
 import type { WorkArtifact } from "@/lib/works";
 import { nextOf, works } from "@/lib/works";
 
@@ -49,6 +50,7 @@ export async function generateMetadata({
     description,
     alternates: { canonical: `/works/${work.slug}` },
     openGraph: {
+      ...sharedOpenGraph,
       title,
       description,
       type: "article",
@@ -71,10 +73,11 @@ export default async function WorkView({ params }: WorkPageProps) {
   if (!work) notFound();
 
   const nextWork = nextOf(work.slug);
-  const mastheadItems: KeyValue[] = [
-    work.client
-      ? { label: "Client", value: work.client }
-      : { label: "Engagement", value: work.engagement ?? "" },
+  const mastheadItems = [
+    {
+      label: work.client ? "Client" : "Engagement",
+      value: work.client ?? work.engagement,
+    },
     { label: "Year", value: work.year },
     { label: "Category", value: work.category },
     {
@@ -83,7 +86,7 @@ export default async function WorkView({ params }: WorkPageProps) {
       href: work.liveUrl,
       gated: work.liveUrlGated,
     },
-  ];
+  ].filter((item): item is KeyValue => Boolean(item.value));
   const roleItems: KeyValue[] = [
     { label: "Role", value: work.role },
     ...(work.client ? [{ label: "Client", value: work.client }] : []),
@@ -233,7 +236,9 @@ export default async function WorkView({ params }: WorkPageProps) {
                 {step.body}
               </p>
             </div>
-            <ArtifactBlock title={step.title} artifact={step.artifact} />
+            {step.artifact ? (
+              <ArtifactBlock title={step.title} artifact={step.artifact} />
+            ) : null}
           </article>
         ))}
       </section>

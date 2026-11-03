@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/ProjectCard";
+import { sharedOpenGraph } from "@/lib/site";
 import { works } from "@/lib/works";
 
 export const metadata = {
@@ -10,6 +11,13 @@ export const metadata = {
   description:
     "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and operator tooling.",
   alternates: { canonical: "/works" },
+  openGraph: {
+    ...sharedOpenGraph,
+    title: "Works | Gilead Odo",
+    description:
+      "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and operator tooling.",
+    url: "/works",
+  },
 };
 
 export default function Works() {
@@ -48,6 +56,7 @@ export default function Works() {
       </section>
 
       <section className="mx-auto px-6 pb-[120px] md:px-12">
+        <h2 className="sr-only">Projects</h2>
         <div className="flex flex-col" style={{ maxWidth: "var(--container-max)" }}>
           {rows.map((row, rowIndex) => (
             <div

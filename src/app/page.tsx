@@ -9,10 +9,18 @@ import { BrowserFrame } from "@/components/BrowserFrame";
 import { Marquee } from "@/components/Marquee";
 import { StaggeredGrid } from "@/components/StaggeredGrid";
 import { CountStat } from "@/components/CountStat";
+import { sharedOpenGraph } from "@/lib/site";
 import { works } from "@/lib/works";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
+  openGraph: {
+    ...sharedOpenGraph,
+    title: "Gilead Odo, Senior Frontend Engineer",
+    description:
+      "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
+    url: "/",
+  },
 };
 
 export default function Home() {
@@ -102,7 +110,7 @@ export default function Home() {
 
             {/* Right: browser frame */}
             <BrowserFrame
-              src="/projects/prune/cover.png"
+              src="/projects/prune/hero.png"
               imageAlt="Prune Payments admin dashboard"
               url="apas.prunepayments.net"
             />

@@ -8,6 +8,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 import "./globals.css";
+import { sharedOpenGraph, siteUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const instrumentSerif = Instrument_Serif({
@@ -59,7 +60,7 @@ const visbyCF = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.gileadodo.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     template: "%s | Gilead Odo",
     default: "Gilead Odo, Senior Frontend Engineer",
@@ -70,10 +71,7 @@ export const metadata: Metadata = {
     title: "Gilead Odo, Senior Frontend Engineer",
     description:
       "Senior Frontend Engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
-    type: "website",
-    locale: "en_US",
-    siteName: "Gilead Odo",
-    url: "/",
+    ...sharedOpenGraph,
   },
   twitter: {
     card: "summary_large_image",

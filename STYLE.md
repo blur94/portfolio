@@ -28,7 +28,9 @@ Design is desktop-first around a 1440px canvas, with responsive behavior added w
 | Email | Resend via `/api/send-email` |
 | Package manager | pnpm |
 
-Do not copy dependencies from another project into this one unless the feature actually needs them. This repo currently does not include Zod env validation, markdown rendering, Shiki, unified, or custom named color themes.
+Shiki highlights case-study code on the server through `src/lib/highlighter.tsx`.
+
+Do not copy dependencies from another project into this one unless the feature actually needs them. This repo currently does not include Zod env validation, markdown rendering, unified, or custom named color themes.
 
 ---
 

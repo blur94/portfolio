@@ -7,6 +7,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: Audit fixes
+
+- Stopped pages sharing as the homepage: removed the root `openGraph.url` and gave each page its own social title, description and URL.
+- Added `src/lib/site.ts` as the single source for the site URL and shared social metadata.
+- Added Prisma highlighting, and made `highlightCode` return plain lines on failure without caching a rejected highlighter.
+- Made `artifact` optional in `src/lib/works.ts` and removed repeated images from the Prune, Qatapolt, Veriv Africa and Reunitar Process steps.
+- Removed the possibility of an empty masthead row on case studies.
+
+### 2026-11-03: Hero wording and project attribution
+
+- Rewrote the hero for remote hiring managers, and replaced "operator-grade" and "a clear operator" on About.
+- Moved the Prune dashboard into the hero in place of Veriv Africa.
+- Added confirmed engagement types to every project: Paystat, re:current and Helium ID built under C80, Veriv Africa and Qatapolt as contract work, FarmGrow and Reunitar as personal projects. Added a contract row on About.
+- Made `client` optional, so personal projects don't list themselves as a client.
+
+### 2026-11-03: Hero image and contact form
+
+- Replaced the hero screenshot with `public/projects/prune/hero.png`, cropped from the Prune cover so it doesn't show a browser frame inside a browser frame. `BrowserFrame.tsx` now uses `next/image` with `priority`, so the image no longer loads late as a CSS background.
+- Added `src/lib/contact-schema.ts`, shared by the form and `sendContactEmail`, so the server validates submissions too.
+- Stopped showing raw provider errors to visitors, and linked form errors to fields with `aria-invalid` and `aria-describedby`.
+- Added a screen-reader `h2` to `/works` so the heading order doesn't skip a level.
+
 ### 2026-11-03: shadcn code block on case studies
 
 - Added `src/components/ui/code-block.tsx` and `src/lib/highlighter.tsx` from the shadcn `base-maia` registry, adapted to the repo's `cn` import and Phosphor icons. Left `button.tsx` unchanged because it already has the `icon-xs` size.

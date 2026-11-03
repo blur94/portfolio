@@ -1,12 +1,20 @@
 import { Fragment } from "react";
 
 import { Kicker } from "@/components/Kicker";
+import { sharedOpenGraph } from "@/lib/site";
 
 export const metadata = {
   title: "About",
   description:
     "About Gilead Odo, a senior frontend engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    ...sharedOpenGraph,
+    title: "About | Gilead Odo",
+    description:
+      "About Gilead Odo, a senior frontend engineer building complex SaaS and fintech applications with React, Next.js, and TypeScript.",
+    url: "/about",
+  },
 };
 
 const articles = [

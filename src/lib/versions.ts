@@ -1,3 +1,5 @@
+import { siteUrl } from "@/lib/site";
+
 /**
  * Archived portfolio versions, newest first.
  *
@@ -25,7 +27,7 @@ export const versions: PortfolioVersion[] = [
     label: "v2",
     name: "Plinth redesign",
     period: "2026 to present",
-    href: "https://gileadodo.com",
+    href: siteUrl,
     current: true,
   },
   {
