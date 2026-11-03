@@ -178,14 +178,14 @@ export const works: Work[] = [
       "Enterprises that verify customers, such as banks, fintechs, and document platforms, don't want to build identity infrastructure themselves. Helium ID provides verification, a digital identity wallet, and authentication as a single platform with an admin console and APIs. That means a data-dense dashboard where businesses run verifications, and a public site to sell the product.",
     constraints: [
       "Identity admin is sensitive, so the backend revalidates the session on every request instead of trusting a cookie.",
-      "Operators need MFA, so there are dedicated 2FA, OTP, and access auth flows.",
+      "Admin users need MFA, so there are dedicated 2FA, OTP, and access auth flows.",
       "The dashboard is data-heavy. Verifications, events, and insights use TanStack Query and Table with Recharts.",
       "Businesses onboard themselves, and a multi-step workspace setup comes before portal access.",
       "A developer console for API keys and integration management is its own module.",
     ],
     process: [
       {
-        title: "An operator dashboard for identity ops",
+        title: "An admin dashboard for identity checks",
         body: "I built the admin portal's verifications, events, insights, billing, and team modules on TanStack Query and Table with Recharts analytics. Filters and pagination use nuqs URL state, and auth and workspace state live in Zustand stores. Each verification row tracks status (started, successful, failed), method, and the API key that initiated it.",
         artifact: {
           kind: "image",
@@ -493,7 +493,7 @@ export const getDashMetrics = async () => {
       { number: "4", label: "Report categories in the moderation queue" },
     ],
     lessons:
-      "Admin dashboards tempt you to show everything the backend exposes. The harder job was deciding what an operator acts on daily, like metrics and moderation queues, and keeping the rest one click away. Moderation tools depend on how quickly someone can go from seeing a report to acting on it.",
+      "Admin dashboards tempt you to show everything the backend exposes. The harder job was deciding what the operations team acts on daily, like metrics and moderation queues, and keeping the rest one click away. Moderation tools depend on how quickly someone can go from seeing a report to acting on it.",
   },
   {
     slug: "farmgrow",

@@ -32,7 +32,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Rewrote the hero for remote hiring managers, and replaced "operator-grade" and "a clear operator" on About.
 - Moved the Prune dashboard into the hero in place of Veriv Africa.
-- Changed "operator" to "landlord" throughout the re:current case study.
+- Changed "operator" to "landlord" throughout the re:current case study, and removed "operator" from the rest of the site at the owner's request.
 - Added confirmed engagement types to every project: Paystat, re:current and Helium ID built under C80, Veriv Africa and Qatapolt as contract work, FarmGrow and Reunitar as personal projects. Added a contract row on About.
 - Made `client` optional, so personal projects don't list themselves as a client.
 

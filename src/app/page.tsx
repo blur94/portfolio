@@ -218,7 +218,7 @@ export default function Home() {
               >
                 Most of my work is turning a process someone already does in
                 spreadsheets into a screen they can work from. That usually means
-                operator dashboards, payment permissions, and booking and identity
+                admin dashboards, payment permissions, and booking and identity
                 workflows.
               </p>
 

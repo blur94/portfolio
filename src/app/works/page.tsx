@@ -9,13 +9,13 @@ import { works } from "@/lib/works";
 export const metadata = {
   title: "Works",
   description:
-    "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and operator tooling.",
+    "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and internal tools.",
   alternates: { canonical: "/works" },
   openGraph: {
     ...sharedOpenGraph,
     title: "Works | Gilead Odo",
     description:
-      "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and operator tooling.",
+      "Selected projects by Gilead Odo across fintech, regtech, civic-tech, and internal tools.",
     url: "/works",
   },
 };
