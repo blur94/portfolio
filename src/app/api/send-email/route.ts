@@ -40,7 +40,7 @@ export async function POST(req: Request) {
   try {
     const resend = new Resend(apiKey);
     const { data, error } = await resend.emails.send({
-      to: "odogilead@gmail.com",
+      to: "hello@gileadodo.com",
       from: "Gilead Odo <info@mail.gileadodo.com>",
       replyTo: email,
       subject: subject,

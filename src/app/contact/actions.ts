@@ -32,7 +32,7 @@ export async function sendContactEmail(
 
   try {
     const { error } = await resend.emails.send({
-      to: 'odogilead@gmail.com',
+      to: 'hello@gileadodo.com',
       from: 'Gilead Odo <info@mail.gileadodo.com>',
       replyTo: values.email,
       subject,
