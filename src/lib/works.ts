@@ -244,6 +244,94 @@ export const config = {
       "For an identity product, revalidating sessions on the server and requiring MFA mattered more than any single screen. A data-dense admin console also depends on its table, query, and URL-state code staying consistent across modules.",
   },
   {
+    slug: "gazettes",
+    updatedAt: "2026-11-03",
+    title: "Gazettes",
+    descriptor:
+      "Nigeria's legislative record in one place: bills, gazettes, and research.",
+    overview:
+      "Gazettes is the legislative information platform of the National Institute for Legislative and Democratic Studies (NILDS), the National Assembly's institute for legislative research and training. It gives the public one place to follow a bill through the National Assembly from first reading to presidential assent, read the official gazettes that publish each Act, and read NILDS researchers' analysis of both. Behind it, a staff app runs the whole publishing workflow, and a third app monitors Gazettes and NILDS's other products. I'm the only frontend engineer on the project. I built and still maintain the frontend of all three apps and the shared packages under them, working against a separate backend team's API.",
+    role: "Sole Frontend Engineer",
+    client: "National Institute for Legislative and Democratic Studies (NILDS)",
+    engagement: "Built under C80 Limited",
+    year: "2026",
+    category: "GovTech",
+    tags: ["Next.js", "TypeScript", "Turborepo", "TanStack Query", "shadcn/ui"],
+    isLive: true,
+    liveUrl: "https://gazettes.dev80.co",
+    coverImage: "/projects/gazettes/cover.png",
+    context:
+      "Nigeria's legislative record has been hard to follow. A bill passes through two chambers before it reaches the President, the Act is published separately as a gazette, and research on it sits somewhere else again. Citizens, journalists, lawyers, and civil society groups had no single place to see where a bill stands, read the law it became, and understand what it does. Gazettes connects all three, and gives NILDS staff the tools to publish and review that record themselves.",
+    constraints: [
+      "Two audiences over the same records. Staff say Gazettes and Analysis where the public app says Publications and Reports, so shared components can't assume either.",
+      "The backend has seven flat bill statuses, but readers expect to see a bill move through the House of Representatives, the Senate, and the final stages.",
+      "Publishing is a chain of roles. Researchers write analysis, directors approve, reject, or request changes, and a published gazette can't be edited.",
+      "Staff sign in through an external identity provider, while gazette data comes from a separate API that accepts that provider's token.",
+      "Official documents have to open in the browser, with zoom, page navigation, and search, and every page has to meet WCAG 2.1 AA.",
+    ],
+    process: [
+      {
+        title: "A public record anyone can follow",
+        body: "The public app covers bill tracking, publications, and research reports, with one command-palette search across all three. Gazettes open in an in-browser document viewer with its own toolbar for zoom, page navigation, and search. Signed-in users can bookmark documents, track bills, and share any page.",
+        artifact: {
+          kind: "image",
+          src: "/projects/gazettes/home.png",
+          width: 2880,
+          height: 2160,
+        },
+      },
+      {
+        title: "A bill's journey through both chambers",
+        body: "The backend tracks seven statuses with no idea of chambers. I built a Bill Passage view that projects them onto twelve stages across the House of Representatives, the Senate, and the final stages, modelled on how PLAC BillsTrack presents a bill. Only stages backed by a real status show a date. The others read \"Completed (date unavailable)\" rather than an invented one, because in the admin app it sits beside an audit log that can't be changed. The view is one shared component used by both apps.",
+        artifact: {
+          kind: "image",
+          src: "/projects/gazettes/bill-passage.png",
+          width: 2880,
+          height: 2160,
+        },
+      },
+      {
+        title: "The staff side of publishing",
+        body: "In the admin app, staff create bills and move them through their stages, upload Acts as gazettes, publish them, and manage the sponsor directory and reminders. Analysis reports follow a review workflow: researchers draft and submit, directors approve, reject, or request changes, and anyone can compare two versions side by side. The dashboard shows each role its own Needs Attention queue, and each section loads on its own, so one failing API response doesn't blank the page.",
+        artifact: {
+          kind: "image",
+          src: "/projects/gazettes/admin-dashboard.png",
+          width: 2880,
+          height: 1336,
+        },
+      },
+      {
+        title: "Three apps on shared packages",
+        body: "The project is a pnpm and Turborepo monorepo. All three apps share packages for shadcn/ui components, a typed API client with auth, zod schemas, TanStack Query hooks, and observability. The apps compile the packages from source, so a fix to a shared component lands everywhere at once.",
+        artifact: {
+          kind: "code",
+          language: "text",
+          body: `apps/
+  user/          public app
+  admin/         staff publishing app
+  observatory/   monitoring dashboard
+packages/
+  ui/            shared shadcn/ui components
+  core/          typed API client, auth, session
+  types/         shared types, zod schemas
+  query/         TanStack Query hooks
+  observability/ errors, logs, analytics`,
+        },
+      },
+      {
+        title: "Monitoring in one place",
+        body: "I wired Sentry for errors, PostHog for product analytics, Axiom for server logs, and UptimeRobot for uptime through one shared package, so the apps never call a vendor SDK directly. Then I built the observatory, which reads all four and shows them in one dashboard for Gazettes and for NILDS Web, the institute's other product. Engineers sign in with GitHub, and the app checks an allowlist on every request, so removing someone takes effect right away.",
+      },
+    ],
+    outcomes: [
+      { number: "3", label: "Apps: public, staff publishing, monitoring" },
+      { number: "12", label: "Bill stages shown from 7 backend statuses" },
+      { number: "4", label: "Monitoring tools in one dashboard" },
+    ],
+    lessons:
+      "Working on a public legislative record taught me to show only what the data supports. Where the backend couldn't back a stage with a real date, the interface says so instead of filling the gap. Being the only frontend engineer across three apps also taught me to put the effort into shared foundations, because every component, query hook, and monitoring hook I got right once paid off in every app.",
+  },
+  {
     slug: "paystat",
     updatedAt: "2026-11-03",
     title: "Paystat",
