@@ -44,6 +44,7 @@ Waiting on owner input. Spec: `docs/portfolio-career-improvement-agent-spec.md` 
 
 ## Parking Lot
 
+- Gazettes: set `isLive` and `liveUrl` once the production URL is known (`dev80.co` is staging)
 - Content validation script for required case-study fields, duplicate slugs and stale years (TECH-004)
 - First Writing article, then add it to the sitemap and remove `noindex`
 - Valid "Download CV" link once a canonical CV is published
