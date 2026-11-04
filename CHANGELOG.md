@@ -13,6 +13,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added the Qatapolt end date to About: May to July 2024, as confirmed by the owner.
 - Added the Veriv Africa end date to About: January to March 2024, as confirmed by the owner. The contractor row now reads Jan 2024 - Jul 2024, since both contracts have ended.
 
+### 2026-11-03: Gazettes case study
+
+- Added Gazettes, the legislative information platform for NILDS, as a case study after Helium ID. It covers the public and admin apps, the Bill Passage view, report review roles and the monitoring dashboard, from the project's own docs.
+- Added screenshots of the live public and admin apps for the cover and the first three Process steps. The entry links to the public app at gazettes.dev80.co, as given by the owner.
+
 ### 2026-11-03: Canonical domain
 
 - Added `lastmod` to every sitemap URL from a hand-set content date (`updatedAt` on each work, `pageUpdatedAt` in `sitemap.ts`), so search engines recrawl the corrected pages sooner.
