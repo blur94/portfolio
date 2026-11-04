@@ -10,7 +10,7 @@ import { works } from "@/lib/works";
  */
 const pageUpdatedAt = {
   home: "2026-11-03",
-  works: "2026-11-03",
+  works: "2026-11-04",
   about: "2026-11-03",
   contact: "2026-11-03",
 } as const;

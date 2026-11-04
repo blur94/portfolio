@@ -332,6 +332,91 @@ packages/
       "Working on a public legislative record taught me to show only what the data supports. Where the backend couldn't back a stage with a real date, the interface says so instead of filling the gap. Being the only frontend engineer across three apps also taught me to put the effort into shared foundations, because every component, query hook, and monitoring hook I got right once paid off in every app.",
   },
   {
+    slug: "legipro",
+    updatedAt: "2026-11-04",
+    title: "LegiPro",
+    descriptor:
+      "Research for Nigeria's National Assembly, from request to approved report.",
+    overview:
+      "LegiPro is the workflow platform that connects Nigeria's National Assembly with the National Institute for Legislative and Democratic Studies (NILDS). It gives the 109 senators, 360 House members and their aides their own offices online, where they ask NILDS for research and follow each request to a finished report. On the NILDS side, staff take every request through review, assignment to a department and a researcher, and two rounds of approval. It runs as three apps: Liaison for members and their aides, LegiPro for NILDS staff, and a sign-in app that launches staff into the tools they can use. I've built the frontends of all three since early 2024, against a separate backend team's API, and in October 2026 I moved them into one monorepo.",
+    role: "Frontend",
+    client: "National Institute for Legislative and Democratic Studies (NILDS)",
+    engagement: "Built under C80 Limited",
+    year: "2024",
+    category: "GovTech",
+    tags: ["Next.js", "TypeScript", "Turborepo", "Mantine", "TanStack Query"],
+    isLive: true,
+    liveUrl: "https://legipro.nilds.gov.ng",
+    liveUrlGated: true,
+    coverImage: "/projects/legipro/cover.png",
+    context:
+      "Lawmakers depend on research to debate and draft bills, and NILDS exists to provide it. A request from a member's office passes through several hands at NILDS before a report comes back, so both sides need to see who holds it, how far it has got, and what happens next. LegiPro gives each request one record that both sides can see, and shows each NILDS role when it's their turn to act.",
+    constraints: [
+      "Two audiences on two apps. Members' offices use Liaison, with its own login, while NILDS staff reach LegiPro through a separate sign-in app, and both work on the same requests.",
+      "Each request passes through a chain of roles: a Liaison Officer, a Technical Adviser, a head of department and a researcher. Several steps can approve, reject or send the request back.",
+      "The API flags some roles directly, but others have to be worked out from the user's group, so the frontend has to decide whose turn it is the same way everywhere.",
+      "The three apps started as separate repositories with different versions of Tailwind, TypeScript and their HTTP and table code.",
+      "The users are members of the National Assembly and their staff, so monitoring can carry user ids and counts, never names, emails or document text.",
+    ],
+    process: [
+      {
+        title: "A research desk for every member's office",
+        body: "In Liaison, a member's aides raise research requests with a category, a deadline and attachments, then follow each one through six stages, from confirmation to final approval, with a progress bar and timeline. Finished reports land in the same office, along with notifications and support tickets to the NILDS team.",
+        artifact: {
+          kind: "image",
+          src: "/projects/legipro/liaison-request.png",
+          width: 2880,
+          height: 2160,
+        },
+      },
+      {
+        title: "One request, four roles, one turn at a time",
+        body: "In LegiPro, the Liaison Officer reviews a new request, the Technical Adviser assigns it to a department, the head of department picks a researcher, and the researcher uploads the report. The head of department then approves it with a rating, and the Technical Adviser confirms it or sends it back. I moved the rule for whose turn it is into one function, used by both the dashboard and the request page, so a role only sees the action that's theirs at that stage.",
+      },
+      {
+        title: "Managing members, aides and announcements",
+        body: "NILDS staff manage the members of both chambers and their aides, reset aide passwords, post announcements, and export the member list to CSV. Every table keeps its search and filters in the URL, shows skeleton rows only while the user is waiting on a fetch, and separates an empty list from a search with no results. A page a role can't open explains that instead of offering a retry that would fail again.",
+        artifact: {
+          kind: "image",
+          src: "/projects/legipro/legipro-members.png",
+          width: 2880,
+          height: 1510,
+        },
+      },
+      {
+        title: "Three repositories, one monorepo",
+        body: "In October 2026 I merged the three repositories into a pnpm and Turborepo monorepo, keeping each one's commit history. Shared code moved into packages: one HTTP client, one query client, one Mantine theme and provider, one data table and one attachment viewer. A lint rule now stops any app from importing Mantine, the table library or axios directly. The apps still deploy separately, each with its own Docker image built from only what it uses, and CI runs only the checks a change affects.",
+        artifact: {
+          kind: "code",
+          language: "text",
+          body: `apps/
+  auth/        sign-in and app launcher
+  legipro/     NILDS staff workflow
+  liaison/     members' offices and aides
+packages/
+  http/               API client, error types
+  query/              TanStack Query setup
+  ui/                 Mantine theme, provider, layout
+  data-table/         shared table with loading, empty, error states
+  attachment-viewer/  in-app document viewer
+  observability/      Sentry, PostHog, Axiom, health route
+  config-eslint/  config-postcss/  config-tsconfig/`,
+        },
+      },
+      {
+        title: "Monitoring that carries ids, not names",
+        body: "I wired Sentry, PostHog and Axiom into all three apps through a shared package, using the same accounts as Gazettes so the NILDS monitoring dashboard covers both. Events carry ids and counts only. Every change a staff member makes to members or aides, and every CSV export, also writes an audit line with who acted, on what, and whether it worked.",
+      },
+    ],
+    outcomes: [
+      { number: "3", label: "Apps: members' offices, staff workflow, sign-in" },
+      { number: "6", label: "Stages from request to final approval" },
+      { number: "9", label: "Shared packages in one monorepo" },
+    ],
+    lessons:
+      "When a request passes through four roles, the hardest bug is two screens disagreeing about whose turn it is. Putting that rule in one place fixed more than any single screen did. When I moved three apps into one repository, I kept history and runtime behaviour unchanged first and shared code second.",
+  },
+  {
     slug: "paystat",
     updatedAt: "2026-11-03",
     title: "Paystat",

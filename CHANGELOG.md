@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-04: LegiPro case study
+
+- Added LegiPro, the NILDS research workflow for the National Assembly, as a case study after Gazettes. It covers the Liaison app for members' offices, the staff approval chain, member management, the move to one monorepo and the monitoring, from the nilds-web docs and git history.
+- The entry links to production Liaison at legipro.nilds.gov.ng, marked as behind a login. Screenshots are from staging, with names blurred.
+
 ### 2026-11-04: Hero screenshot crop
 
 - The Prune dashboard screenshot in the home hero now shows in full. `BrowserFrame` no longer forces a 4:3 box with `object-cover`; the frame takes its height from the image's aspect ratio (new required `width` and `height` props).
