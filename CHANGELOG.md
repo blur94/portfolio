@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-04: RAIA dates
+
+- Changed the Responsible AI Africa row on About from "Feb 2025 - Jul 2026" to "Feb 2025 - Present, per feature". The owner confirmed the engagement stays open for new features.
+
 ## [2.2] - 2026-11-04
 
 ### 2026-11-04: LegiPro case study
