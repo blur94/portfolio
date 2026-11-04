@@ -338,7 +338,7 @@ packages/
     descriptor:
       "Research for Nigeria's National Assembly, from request to approved report.",
     overview:
-      "LegiPro is the workflow platform that connects Nigeria's National Assembly with the National Institute for Legislative and Democratic Studies (NILDS). It gives the 109 senators, 360 House members and their aides their own offices online, where they ask NILDS for research and follow each request to a finished report. On the NILDS side, staff take every request through review, assignment to a department and a researcher, and two rounds of approval. It runs as three apps: Liaison for members and their aides, LegiPro for NILDS staff, and a sign-in app that launches staff into the tools they can use. I've built frontend for all three since early 2024, against a separate backend team's API, and in October 2026 I moved them into one monorepo.",
+      "LegiPro is the workflow platform that connects Nigeria's National Assembly with the National Institute for Legislative and Democratic Studies (NILDS). It gives the 109 senators, 360 House members and their aides their own offices online, where they ask NILDS for research and follow each request to a finished report. On the NILDS side, staff take every request through review, assignment to a department and a researcher, and two rounds of approval. It runs as three apps: Liaison for members and their aides, LegiPro for NILDS staff, and a sign-in app that launches staff into the tools they can use. I've built the frontends of all three since early 2024, against a separate backend team's API, and in October 2026 I moved them into one monorepo.",
     role: "Frontend",
     client: "National Institute for Legislative and Democratic Studies (NILDS)",
     engagement: "Built under C80 Limited",
@@ -350,7 +350,7 @@ packages/
     liveUrlGated: true,
     coverImage: "/projects/legipro/cover.png",
     context:
-      "Lawmakers depend on research to debate and draft bills, and NILDS exists to provide it. Before LegiPro, a request from a member's office had no shared record: nobody could see who held it, how far it had got, or when the report would arrive. LegiPro gives each request one record that both sides can see, and gives every NILDS role a clear turn to act on it.",
+      "Lawmakers depend on research to debate and draft bills, and NILDS exists to provide it. A request from a member's office passes through several hands at NILDS before a report comes back, so both sides need to see who holds it, how far it has got, and what happens next. LegiPro gives each request one record that both sides can see, and shows each NILDS role when it's their turn to act.",
     constraints: [
       "Two audiences on two apps. Members' offices use Liaison, with its own login, while NILDS staff reach LegiPro through a separate sign-in app, and both work on the same requests.",
       "Each request passes through a chain of roles: a Liaison Officer, a Technical Adviser, a head of department and a researcher. Several steps can approve, reject or send the request back.",
@@ -380,7 +380,7 @@ packages/
           kind: "image",
           src: "/projects/legipro/legipro-members.png",
           width: 2880,
-          height: 2160,
+          height: 1510,
         },
       },
       {
@@ -404,7 +404,7 @@ packages/
         },
       },
       {
-        title: "Monitoring with privacy built in",
+        title: "Monitoring that carries ids, not names",
         body: "I wired Sentry, PostHog and Axiom into all three apps through a shared package, using the same accounts as Gazettes so the NILDS monitoring dashboard covers both. Events carry ids and counts only. Every change a staff member makes to members or aides, and every CSV export, also writes an audit line with who acted, on what, and whether it worked.",
       },
     ],
@@ -414,7 +414,7 @@ packages/
       { number: "9", label: "Shared packages in one monorepo" },
     ],
     lessons:
-      "When a request passes through four roles, the hardest bug is two screens disagreeing about whose turn it is. Putting that rule in one place fixed more than any single screen did. Moving three apps into one repository taught me to keep history and runtime behaviour unchanged first, and share code second.",
+      "When a request passes through four roles, the hardest bug is two screens disagreeing about whose turn it is. Putting that rule in one place fixed more than any single screen did. When I moved three apps into one repository, I kept history and runtime behaviour unchanged first and shared code second.",
   },
   {
     slug: "paystat",

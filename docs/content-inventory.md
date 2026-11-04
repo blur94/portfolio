@@ -46,7 +46,7 @@ Confirmed by the owner on 2026-11-03.
 | Gazettes | Live URL `https://gazettes.dev80.co` | Given by the owner on 2026-11-03, not checked from the build environment |
 | Gazettes | Screenshots | Captured from the live apps on 2026-11-03. The admin dashboard is cropped above Recent Activity, which names a staff reviewer |
 | LegiPro | 3 apps, 6 request stages, 9 shared packages | Structural, from the nilds-web repository on 2026-11-04 |
-| LegiPro | Screenshots | Captured from staging on 2026-11-04. Names, initials and the greeting are blurred, and the members table's email column was greyed out before capture. The cover is the staff view of a completed request |
+| LegiPro | Screenshots | Captured from staging on 2026-11-04. Names, initials and the greeting are blurred, and the members table's email column was greyed out before capture. The members shot is cropped below the staging stat cards. The cover is the staff view of a completed request |
 | LegiPro | 109 senators, 360 House members | Owner on 2026-11-03 |
 | LegiPro | Dates: liaison-web from Feb 2024, legipro-admin and nilds-auth from Apr 2024, monorepo on 2026-10-05 | Git history |
 | LegiPro | Live URL `https://legipro.nilds.gov.ng` (Liaison, production, behind a login) | Given by the owner on 2026-11-04, not checked from the build environment. Screenshots are from staging |
