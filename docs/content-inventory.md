@@ -44,7 +44,7 @@ Confirmed by the owner on 2026-11-03.
 | Gazettes | 3 apps, 12 bill stages from 7 backend statuses, 4 monitoring tools | Structural, from the Gazettes repository on 2026-11-03 |
 | Gazettes | Role "Sole Frontend Engineer" | Owner on 2026-11-03: sole frontend maintainer |
 | Gazettes | Live URL `https://gazettes.dev80.co` | Given by the owner on 2026-11-03, not checked from the build environment |
-| Gazettes | Cover image | Illustration of the Bill Passage view with sample data, until real screenshots replace it |
+| Gazettes | Screenshots | Captured from the live apps on 2026-11-03. The admin dashboard is cropped above Recent Activity, which names a staff reviewer |
 | Paystat | 12 modules, 15+ countries for bank validation, 1 subdomain per tenant | Structural |
 | Raia | 54 countries | Confirmed by the owner: all 54 African countries are covered |
 | Raia | 7 initiatives, 5 directory categories | Structural |

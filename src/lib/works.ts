@@ -273,28 +273,32 @@ export const config = {
       {
         title: "A public record anyone can follow",
         body: "The public app covers bill tracking, publications, and research reports, with one command-palette search across all three. Gazettes open in an in-browser document viewer with its own toolbar for zoom, page navigation, and search. Signed-in users can bookmark documents, track bills, and share any page.",
+        artifact: {
+          kind: "image",
+          src: "/projects/gazettes/home.png",
+          width: 2880,
+          height: 2160,
+        },
       },
       {
         title: "A bill's journey through both chambers",
         body: "The backend tracks seven statuses with no idea of chambers. I built a Bill Passage view that projects them onto twelve stages across the House of Representatives, the Senate, and the final stages, modelled on how PLAC BillsTrack presents a bill. Only stages backed by a real status show a date. The others read \"Completed (date unavailable)\" rather than an invented one, because in the admin app it sits beside an audit log that can't be changed. The view is one shared component used by both apps.",
         artifact: {
-          kind: "code",
-          language: "typescript",
-          body: `// The seven statuses the API returns, projected onto
-// 12 stages: 5 per chamber plus 2 final stages
-type BillStatus =
-  | "FIRST_READING"
-  | "AWAITING_SECOND_READING"
-  | "AWAITING_COMMITTEE_REPORT"
-  | "LAID_ON_TABLE"
-  | "PASSED"
-  | "WITH_PRESIDENT"
-  | "ASSENTED";`,
+          kind: "image",
+          src: "/projects/gazettes/bill-passage.png",
+          width: 2880,
+          height: 2160,
         },
       },
       {
         title: "The staff side of publishing",
         body: "In the admin app, staff create bills and move them through their stages, upload Acts as gazettes, publish them, and manage the sponsor directory and reminders. Analysis reports follow a review workflow: researchers draft and submit, directors approve, reject, or request changes, and anyone can compare two versions side by side. The dashboard shows each role its own Needs Attention queue, and each section loads on its own, so one failing API response doesn't blank the page.",
+        artifact: {
+          kind: "image",
+          src: "/projects/gazettes/admin-dashboard.png",
+          width: 2880,
+          height: 1336,
+        },
       },
       {
         title: "Three apps on shared packages",
