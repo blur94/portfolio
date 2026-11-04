@@ -257,8 +257,7 @@ export const config = {
     year: "2026",
     category: "GovTech",
     tags: ["Next.js", "TypeScript", "Turborepo", "TanStack Query", "shadcn/ui"],
-    isLive: true,
-    liveUrl: "https://gazettes.dev80.co",
+    isLive: false,
     coverImage: "/projects/gazettes/cover.png",
     context:
       "Nigeria's legislative record has been hard to follow. A bill passes through two chambers before it reaches the President, the Act is published separately as a gazette, and research on it sits somewhere else again. Citizens, journalists, lawyers, and civil society groups had no single place to see where a bill stands, read the law it became, and understand what it does. Gazettes connects all three, and gives NILDS staff the tools to publish and review that record themselves.",
