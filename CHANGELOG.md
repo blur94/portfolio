@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-04: Hero screenshot crop
+
+- The Prune dashboard screenshot in the home hero now shows in full. `BrowserFrame` no longer forces a 4:3 box with `object-cover`; the frame takes its height from the image's aspect ratio (new required `width` and `height` props).
+
 ### 2026-11-03: Contact form inbox
 
 - Contact form messages now go to hello@gileadodo.com instead of the personal Gmail address. Gmail is set to reply from the address a message was sent to, so replies to visitors come from hello@gileadodo.com.
