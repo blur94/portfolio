@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### 2026-11-03: Contact form inbox
+
+- Contact form messages now go to hello@gileadodo.com instead of the personal Gmail address. Gmail is set to reply from the address a message was sent to, so replies to visitors come from hello@gileadodo.com.
+
 ### 2026-11-03: Engagement end dates
 
 - Added the Prune end date to About: the engagement ran from July 2024 to September 2026, as confirmed by the owner.
