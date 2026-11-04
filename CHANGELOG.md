@@ -7,6 +7,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+## [2.2] - 2026-11-04
+
 ### 2026-11-04: LegiPro case study
 
 - Added LegiPro, the NILDS research workflow for the National Assembly, as a case study after Gazettes. It covers the Liaison app for members' offices, the staff approval chain, member management, the move to one monorepo and the monitoring, from the nilds-web docs and git history.
@@ -107,6 +109,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `src/components/Footer.tsx`: fixed the LinkedIn URL. Writing left the nav and footer, and `/writing` is `noindex` until it has an article.
 - `docs/content-inventory.md` (new): route-to-source map, status of each number, and removed claims.
 
+## [2.1] - 2026-11-03
+
 ### 2026-11-03 — Rename project to "portfolio"
 
 - Renamed the project from `pre-portfolio` to `portfolio` in `package.json` and the repo memory file headers, ahead of the GitHub repo rename.
@@ -116,6 +120,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `src/lib/versions.ts` (new): typed list of portfolio versions (`v2` current at gileadodo.com, `v1` at v1.gileadodo.com).
 - `src/components/VersionSwitcher.tsx` (new): Base UI `Menu` dropdown in the navbar, left of the theme toggle (visible on desktop and mobile). It lists each version with its name and period, checks the current one, and links out to archived ones. Uses design tokens for both themes.
 - Repo: tagged `v1` (`6f45a83`) and `v2` (`7016a13`); `release/v1` branch carries `noindex` + canonical for the archive deploy.
+
+## [2.0] - 2026-06-29
 
 ### 2026-06-29 — Writing "Coming Soon" page
 
