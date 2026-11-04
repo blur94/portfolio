@@ -372,12 +372,6 @@ packages/
       {
         title: "One request, four roles, one turn at a time",
         body: "In LegiPro, the Liaison Officer reviews a new request, the Technical Adviser assigns it to a department, the head of department picks a researcher, and the researcher uploads the report. The head of department then approves it with a rating, and the Technical Adviser confirms it or sends it back. I moved the rule for whose turn it is into one function, used by both the dashboard and the request page, so a role only sees the action that's theirs at that stage.",
-        artifact: {
-          kind: "image",
-          src: "/projects/legipro/legipro-request.png",
-          width: 2880,
-          height: 2160,
-        },
       },
       {
         title: "Managing members, aides and announcements",
