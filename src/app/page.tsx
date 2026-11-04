@@ -113,6 +113,8 @@ export default function Home() {
               src="/projects/prune/hero.png"
               imageAlt="Prune Payments admin dashboard"
               url="apas.prunepayments.net"
+              width={1438}
+              height={786}
             />
           </div>
         </div>

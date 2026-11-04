@@ -12,14 +12,23 @@ interface BrowserFrameProps {
   imageAlt: string;
   /** URL string shown in the fake address bar */
   url: string;
+  /** Intrinsic image width in px; with height, sets the body's aspect ratio */
+  width: number;
+  /** Intrinsic image height in px */
+  height: number;
 }
 
-export function BrowserFrame({ src, imageAlt, url }: BrowserFrameProps) {
+export function BrowserFrame({
+  src,
+  imageAlt,
+  url,
+  width,
+  height,
+}: BrowserFrameProps) {
   return (
     <div
       className="w-full overflow-hidden rounded-xl border"
       style={{
-        aspectRatio: "4 / 3",
         backgroundColor: "var(--bg-surface)",
         borderColor: "var(--border-faint)",
         boxShadow: "0 8px 40px rgba(0,0,0,0.18)",
@@ -75,18 +84,17 @@ export function BrowserFrame({ src, imageAlt, url }: BrowserFrameProps) {
         <div className="w-[52px]" aria-hidden="true" />
       </div>
 
-      {/* Browser body: screenshot */}
-      <div className="relative h-[calc(100%-44px)] w-full">
-        <Image
-          src={src}
-          alt={imageAlt}
-          fill
-          priority
-          quality={90}
-          sizes="(min-width: 768px) 45vw, calc(100vw - 48px)"
-          className="object-cover object-left-top"
-        />
-      </div>
+      {/* Browser body: screenshot, sized by its own aspect ratio so nothing is cropped */}
+      <Image
+        src={src}
+        alt={imageAlt}
+        width={width}
+        height={height}
+        priority
+        quality={90}
+        sizes="(min-width: 768px) 45vw, calc(100vw - 48px)"
+        className="block h-auto w-full"
+      />
     </div>
   );
 }
